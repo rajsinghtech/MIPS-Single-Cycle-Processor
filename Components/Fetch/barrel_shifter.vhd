@@ -55,7 +55,7 @@ begin
 		SHIFT_RIGHT_START : IF j + 2 ** i > WORD_SIZE-1 generate
 
 			MUX: mux4t1 port map( 
-				i_S => ( 0 => i_shamt(i), 1 => i_shift_type),
+				i_S => i_shamt(i) & i_shift_type,
 				i_D0 => shift_layer_data(i,j),
 				i_D1 => shift_layer_data(i, j - (2 ** i)),
 				i_D2 => '0',
