@@ -50,9 +50,9 @@ architecture structure of barrel_shifter is
   
 begin
 
-	sll_res <= std_logic_vector(unsigned(i_src) * (2 ** unsigned(i_shamt)));
-	srl_res <= std_logic_vector(unsigned(i_src) / (2 ** unsigned(i_shamt)));
-	sra_res <= std_logic_vector(signed(i_src) / (2 ** signed(i_shamt)));
+	sll_res <= std_logic_vector(unsigned(i_src) * (2 ** to_integer(unsigned(i_shamt))));
+	srl_res <= std_logic_vector(unsigned(i_src) / (2 ** to_integer(unsigned(i_shamt))));
+	sra_res <= std_logic_vector(signed(i_src) / (2 ** to_integer(signed(i_shamt))));
 	
 	  Shift_LL_Sel: mux2t1_N
 	  port map(
