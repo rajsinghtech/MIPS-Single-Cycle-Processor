@@ -60,7 +60,7 @@ begin
 				i_D1 => shift_layer_data(i, j - (2 ** i)),
 				i_D2 => '0',
 				i_D3 => '1',
-				o_O => shift_layer_data(i, j));
+				o_O => shift_layer_data(i + 1, j));
 
 		end generate SHIFT_RIGHT_START;
 
@@ -73,7 +73,7 @@ begin
 				i_D1 => '0',
 				i_D2 => shift_layer_data(i, j + (2 ** i)),
 				i_D3 => shift_layer_data(i, j + (2 ** i)),
-				o_O => shift_layer_data(i, j));
+				o_O => shift_layer_data(i + 1, j));
 		
 		end generate SHIFT_LEFT_END;
 
@@ -86,13 +86,16 @@ begin
 			i_D1 => shift_layer_data(i, j - (2 ** i)),
 			i_D2 => shift_layer_data(i, j + (2 ** i)),
 			i_D3 => shift_layer_data(i, j + (2 ** i)),
-			o_O => shift_layer_data(i, j));
+			o_O => shift_layer_data(i + 1, j));
 
 		end generate NORMAL_SHIFT;
 	
 	end generate G_SHIFT_MUX;
   end generate G_SHIFT_LAYER;
 
+  READ_OUTPUT: for i in 0 to MAX_SHIFT-1 generate
+  	o_shift_out(i) <= shift_layer_data(5, i)
+  end generate READ_OUTPUT;
 	
 
 end structure;
