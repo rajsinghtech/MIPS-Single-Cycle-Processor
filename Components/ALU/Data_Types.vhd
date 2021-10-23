@@ -8,6 +8,7 @@ use ieee.numeric_std.all;
 package Data_Types is
 
 	type DATA_FIELD is array(integer range <>) of std_logic_vector(31 downto 0);
+	type shift_layers is array(integer range <>) of std_logic_vector(31 downto 0);
 	
 	type OP_CODE is ( add, addi, lw, sw);
 	
