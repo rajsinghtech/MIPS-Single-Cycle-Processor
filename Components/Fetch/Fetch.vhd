@@ -105,7 +105,7 @@ begin
             o_S    => next_instruction);
 
 
-  branch_address: Ripple_Adder
+  branch_address_calc: Ripple_Adder
   port map(
             i_A    => next_instruction,
 		      	i_B    => branch_immediate,
