@@ -54,9 +54,9 @@ begin
 --	srl_res <= std_logic_vector(to_unsigned(to_integer(unsigned(i_src)) >> to_integer(unsigned(i_shamt)) ), sll_res'length);
 --	sra_res <= std_logic_vector(to_signed(to_integer(signed(i_src)) >> to_integer(signed(i_shamt)) ), sll_res'length);
 
-	sll_res <= i_src sll unsigned(i_shamt);
-	srl_res <= i_src srl unsigned(i_shamt);
-	sra_res <= i_src sra unsigned(i_shamt);
+	sll_res <= std_logic_vector(unsigned(i)_src sll to_integer(unsigned(i_shamt)));
+	srl_res <= std_logic_vector(unsigned(i)_src srl to_integer(unsigned(i_shamt)));
+	sra_res <= std_logic_vector(signed(i)_src sra to_integer(unsigned(i_shamt)));
 
 
 	  Shift_LL_Sel: mux2t1_N
