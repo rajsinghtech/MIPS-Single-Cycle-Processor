@@ -51,7 +51,7 @@ begin
 
   G_SHIFT_LAYER: for i in 0 to MAX_SHIFT-1 generate
 	G_SHIFT_MUX: for j in 0 to WORD_SIZE-1 generate
-		SHIFT_RIGHT_START : IF j + 2 ** i > WORD_SIZE-1 generate
+		SHIFT_RIGHT_START : IF j + (2 ** i) > WORD_SIZE-1 generate
 
 			MUX: mux4t1 port map( 
 				i_S(0) => i_shamt(i),
@@ -64,7 +64,7 @@ begin
 
 		end generate SHIFT_RIGHT_START;
 
-		SHIFT_LEFT_END : if j - 2 ** i < 0 generate
+		SHIFT_LEFT_END : if j - (2 ** i) < 0 generate
 
 			MUX: mux4t1 port map( 
 				i_S(0) => i_shamt(i),
@@ -77,7 +77,7 @@ begin
 		
 		end generate SHIFT_LEFT_END;
 
-		NORMAL_SHIFT : if j + 2 ** i < WORD_SIZE-1 AND j - 2 ** i > 0 generate
+		NORMAL_SHIFT : if j + (2 ** i) < WORD_SIZE-1 AND j - (2 ** i) > 0 generate
 
 		MUX: mux4t1 port map( 
 			i_S(0) => i_shamt(i),
@@ -93,7 +93,7 @@ begin
 	end generate G_SHIFT_MUX;
   end generate G_SHIFT_LAYER;
 
-  READ_OUTPUT: for i in 0 to MAX_SHIFT-1 generate
+  READ_OUTPUT: for i in 0 to WORD_SIZE-1 generate
   	o_shift_out(i) <= shift_layer_data(5, i);
   end generate READ_OUTPUT;
 	
