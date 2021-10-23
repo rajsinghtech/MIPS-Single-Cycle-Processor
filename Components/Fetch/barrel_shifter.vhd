@@ -45,7 +45,7 @@ architecture structure of barrel_shifter is
 			o_O          : out std_logic);
 	end component;
 
-  signal shift_layer_data : shift_layers(MAX_SHIFT - 1 downto 0);
+  signal shift_layer_data : shift_layers(MAX_SHIFT - 1 downto 0, WORD_SIZE - 1 downto 0);
   
   
 begin
