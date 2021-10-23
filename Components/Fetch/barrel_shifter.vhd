@@ -81,7 +81,7 @@ begin
 		
 		end generate SHIFT_LEFT_END;
 
-		NORMAL_SHIFT : if j + (2 ** i) < WORD_SIZE-1 AND j - (2 ** i) > 0 generate
+		NORMAL_SHIFT : if j + (2 ** i) <= WORD_SIZE-1 and j - (2 ** i) >= 0 generate
 
 		MUX: mux4t1 port map( 
 			i_S(0) => i_shamt(i),
