@@ -26,11 +26,10 @@ use work.Data_Types.all;
 entity barrel_shifter is
   generic(MAX_SHIFT: integer := 5; WORD_SIZE : integer := 32; SHIFT_TYPE_BITS: integer := 2);
   port (
-	
 	i_src : in std_logic_vector( WORD_SIZE - 1 downto 0 );
 	i_shift_type: in std_logic_vector( SHIFT_TYPE_BITS - 1 downto 0);
-	o_shift_out : out std_logic_vector( WORD_SIZE - 1 downto 0 );
-  
+	i_shamt: in std_logic_vector( MAX_SHIFT - 1 downto 0 );
+	o_shift_out : out std_logic_vector( WORD_SIZE - 1 downto 0 )
   );
 end barrel_shifter;
 
@@ -72,12 +71,12 @@ begin
 	
 	  Shift_LL_Mult: mux2t1_N
 	  port map(
-				i_S     => i_shift_type(i),
+				i_S     => i_shamt(i),
 				i_D0    => sll_layers(i),
 				i_D1    => sll_temp(i),
 				o_O     => sll_layers(i + 1));
 	
-	end generate
+	end generate;
 
 -- Shift Right Logical
 
@@ -89,12 +88,12 @@ begin
 	
 	  Shift_LL_Mult: mux2t1_N
 	  port map(
-				i_S     => i_shift_type(i),
+				i_S     => i_shamt(i),
 				i_D0    => srl_layers(i),
 				i_D1    => srl_temp(i),
 				o_O     => srl_layers(i+1));
 	
-	end generate
+	end generate;
 
 -- Shift Right Arithmetic
 
@@ -106,12 +105,12 @@ begin
 	
 	  Shift_LL_Mult: mux2t1_N
 	  port map(
-				i_S     => i_shift_type(i),
+				i_S     => i_shamt(i),
 				i_D0    => sra_layers(i),
 				i_D1    => sra_temp(i),
 				o_O     => sra_layers(i+1));
 	
-	end generate
+	end generate;
 	
 	  Shift_LL_Sel: mux2t1_N
 	  port map(
