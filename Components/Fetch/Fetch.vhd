@@ -123,14 +123,14 @@ begin
             i_D1    => i_addr,
             o_O     => branch_or_register);
 
-  Branch_Jump: mux2t1_N
+  branch_jump_calc: mux2t1_N
   port map(
             i_S     => j_type(2),
             i_D0    => jump_address,
             i_D1    => branch_or_register,
             o_O     => branch_jump);
 
-  Next_Address: mux2t1_N
+  next_address_calc: mux2t1_N
   port map(
             i_S     => j_type(1),
             i_D0    => next_instruction,
