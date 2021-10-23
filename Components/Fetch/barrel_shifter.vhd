@@ -94,7 +94,7 @@ begin
   end generate G_SHIFT_LAYER;
 
   READ_OUTPUT: for i in 0 to MAX_SHIFT-1 generate
-  	o_shift_out(i) <= shift_layer_data(5, i)
+  	o_shift_out(i) <= shift_layer_data(5, i);
   end generate READ_OUTPUT;
 	
 
