@@ -36,6 +36,7 @@ begin
     i_D0 when "00",
     i_D1 when "01",
     i_D2 when "10",
-    i_D3 when "11";
+    i_D3 when "11",
+    when others => '0';
 
 end structural;
