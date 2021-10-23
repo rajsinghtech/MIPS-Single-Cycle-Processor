@@ -49,6 +49,10 @@ architecture structure of barrel_shifter is
   
 begin
 
+  READ_INPUT: for i in 0 to WORD_SIZE-1 generate
+  	shift_layer_data(0, i) <= i_src(i);
+  end generate READ_INPUT;
+
   G_SHIFT_LAYER: for i in 0 to MAX_SHIFT-1 generate
 	G_SHIFT_MUX: for j in 0 to WORD_SIZE-1 generate
 		SHIFT_RIGHT_START : IF j + (2 ** i) > WORD_SIZE-1 generate
