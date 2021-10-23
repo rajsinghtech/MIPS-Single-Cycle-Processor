@@ -55,7 +55,8 @@ begin
 		SHIFT_RIGHT_START : IF j + 2 ** i > WORD_SIZE-1 generate
 
 			MUX: mux4t1 port map( 
-				i_S => i_shamt(i) & i_shift_type,
+				i_S(0) => i_shamt(i),
+				i_S(1) => i_shift_type,
 				i_D0 => shift_layer_data(i,j),
 				i_D1 => shift_layer_data(i, j - (2 ** i)),
 				i_D2 => '0',
@@ -67,7 +68,8 @@ begin
 		SHIFT_LEFT_END : if j - 2 ** i < 0 generate
 
 			MUX: mux4t1 port map( 
-				i_S => ( 0 => i_shamt(i), 1 => i_shift_type),
+				i_S(0) => i_shamt(i),
+				i_S(1) => i_shift_type,
 				i_D0 => shift_layer_data(i,j),
 				i_D1 => '0',
 				i_D2 => shift_layer_data(i, j + (2 ** i)),
@@ -79,7 +81,8 @@ begin
 		NORMAL_SHIFT : if j + 2 ** i < WORD_SIZE-1 AND j - 2 ** i > 0 generate
 
 		MUX: mux4t1 port map( 
-			i_S => ( 0 => i_shamt(i), 1 => i_shift_type),
+			i_S(0) => i_shamt(i),
+			i_S(1) => i_shift_type,
 			i_D0 => shift_layer_data(i,j),
 			i_D1 => shift_layer_data(i, j - (2 ** i)),
 			i_D2 => shift_layer_data(i, j + (2 ** i)),
