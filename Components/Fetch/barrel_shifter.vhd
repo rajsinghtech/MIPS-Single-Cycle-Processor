@@ -46,7 +46,7 @@ architecture structure of barrel_shifter is
   signal sll_res : std_logic_vector( WORD_SIZE - 1 downto 0 );
   signal srl_res : std_logic_vector( WORD_SIZE - 1 downto 0 );
   signal sra_res : std_logic_vector( WORD_SIZE - 1 downto 0 );
-  signal sll_srl_out : std_logic_vector( WORD_SIZE - downto 0);
+  signal sll_srl_out : std_logic_vector( WORD_SIZE - 1 downto 0);
   
 begin
 
