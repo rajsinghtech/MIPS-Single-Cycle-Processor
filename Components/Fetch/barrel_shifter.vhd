@@ -54,14 +54,11 @@ begin
 --	srl_res <= std_logic_vector(to_unsigned(to_integer(unsigned(i_src)) >> to_integer(unsigned(i_shamt)) ), sll_res'length);
 --	sra_res <= std_logic_vector(to_signed(to_integer(signed(i_src)) >> to_integer(signed(i_shamt)) ), sll_res'length);
 
-	sll_res(WORD_SIZE - 1 downto to_integer(unsigned(i_shamt))) <= i_src( WORD_SIZE - 1 - to_integer(unsigned(i_shamt)) downto 0);
-	sll_res <= (others => '0');
+	sll_res(WORD_SIZE - 1 downto to_integer(unsigned(i_shamt))) <= (i_src( WORD_SIZE - 1 - to_integer(unsigned(i_shamt)) downto 0), others => '0');
 
-	srl_res(WORD_SIZE - 1 - to_integer(unsigned(i_shamt)) downto 0) <= i_src( WORD_SIZE - 1 downto to_integer(unsigned(i_shamt)));
-	srl_res <= (others => '0');
+	srl_res(WORD_SIZE - 1 - to_integer(unsigned(i_shamt)) downto 0) <= (i_src( WORD_SIZE - 1 downto to_integer(unsigned(i_shamt))), others => '0');
 
-	srl_res(WORD_SIZE - 1 - to_integer(unsigned(i_shamt)) downto 0) <= i_src( WORD_SIZE - 1 downto to_integer(unsigned(i_shamt)));
-	sra_res <= (others => '1');
+	srl_res(WORD_SIZE - 1 - to_integer(unsigned(i_shamt)) downto 0) <= (i_src( WORD_SIZE - 1 downto to_integer(unsigned(i_shamt))), others => '1');
 
 
 	  Shift_LL_Sel: mux2t1_N
