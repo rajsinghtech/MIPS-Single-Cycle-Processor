@@ -54,7 +54,7 @@ architecture structure of barrel_shifter is
 	end component;
 
   signal shift_layer_data : shift_layers;
-  signal shift_select: MUX_SELECT;
+  signal shift_select: MUX_SELECT( 1 downto 0);
   
   
 begin
