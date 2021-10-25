@@ -27,7 +27,7 @@ entity barrel_shifter is
   generic(MAX_SHIFT: integer := 5; WORD_SIZE : integer := 32);
   port (
 	i_src : in std_logic_vector( WORD_SIZE - 1 downto 0 );
-	i_shift_type: in std_logic;
+	i_shift_type: in std_logic_vector( 1 downto 0 );
 	i_shamt: in std_logic_vector( MAX_SHIFT - 1 downto 0 );
 	o_shift_out : out std_logic_vector( WORD_SIZE - 1 downto 0 )
   );
@@ -44,7 +44,17 @@ architecture structure of barrel_shifter is
 			o_O          : out std_logic);
 	end component;
 
+	component mux2t1_N is
+		generic(N : integer := 2); -- Generic of type integer for input/output data width. Default value is 32.
+		port(i_S          : in std_logic;
+			 i_D0         : in std_logic_vector(1 downto 0);
+			 i_D1         : in std_logic_vector(1 downto 0);
+			 o_O          : out std_logic_vector(1 downto 0));
+	  
+	end component;
+
   signal shift_layer_data : shift_layers;
+  signal shift_select: MUX_SELECT(MAX_SHIFT - 1 downto 0);
   
   
 begin
@@ -54,12 +64,21 @@ begin
   end generate READ_INPUT;
 
   G_SHIFT_LAYER: for i in 0 to MAX_SHIFT-1 generate
+  	
+	SHIFT_SELECT: mux2t1_N port map(
+		i_S => i_shamt(i),
+		i_D0 => "00",
+		i_D1 => i_shift_type,
+		o_O => shift_select(i)
+	);
+ 
+ 	shift_select(i)
 	G_SHIFT_MUX: for j in 0 to WORD_SIZE-1 generate
 		SHIFT_RIGHT_START : IF j + (2 ** i) > WORD_SIZE-1 generate
 
+
 			MUX: mux4t1 port map( 
-				i_S(0) => i_shamt(i),
-				i_S(1) => i_shift_type,
+				i_S => shift_select(i),
 				i_D0 => shift_layer_data(i,j),
 				i_D1 => shift_layer_data(i, j - (2 ** i)),
 				i_D2 => '0',
@@ -71,8 +90,7 @@ begin
 		SHIFT_LEFT_END : if j - (2 ** i) < 0 generate
 
 			MUX: mux4t1 port map( 
-				i_S(0) => i_shamt(i),
-				i_S(1) => i_shift_type,
+				i_S=> shift_select(i),
 				i_D0 => shift_layer_data(i,j),
 				i_D1 => '0',
 				i_D2 => shift_layer_data(i, j + (2 ** i)),
@@ -84,8 +102,7 @@ begin
 		NORMAL_SHIFT : if j + (2 ** i) <= WORD_SIZE-1 and j - (2 ** i) >= 0 generate
 
 		MUX: mux4t1 port map( 
-			i_S(0) => i_shamt(i),
-			i_S(1) => i_shift_type,
+			i_S => shift_select(i),
 			i_D0 => shift_layer_data(i,j),
 			i_D1 => shift_layer_data(i, j - (2 ** i)),
 			i_D2 => shift_layer_data(i, j + (2 ** i)),
