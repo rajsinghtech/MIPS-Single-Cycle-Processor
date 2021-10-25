@@ -72,7 +72,6 @@ begin
 		o_O => shift_select(i)
 	);
  
- 	shift_select(i)
 	G_SHIFT_MUX: for j in 0 to WORD_SIZE-1 generate
 		SHIFT_RIGHT_START : IF j + (2 ** i) > WORD_SIZE-1 generate
 
