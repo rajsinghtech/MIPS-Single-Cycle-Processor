@@ -24,7 +24,7 @@ use IEEE.Numeric_Std.all;
 use work.Data_Types.all;
 
 entity NBitMux is
-  generic ( NUM_SELECT: integer := 5; WORD_SIZE : integer := 32);
+  generic ( NUM_SELECT: integer := 3; WORD_SIZE : integer := 32);
   port(	i_A	: in DATA_FIELD( ((2**NUM_SELECT) - 1) downto 0);
 	      i_S	: in std_logic_vector( NUM_SELECT - 1 downto 0);
        	o_Q	: out std_logic_vector( WORD_SIZE - 1 downto 0));
