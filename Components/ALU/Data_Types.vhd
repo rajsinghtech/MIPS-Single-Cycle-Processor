@@ -10,7 +10,7 @@ package Data_Types is
 	type DATA_FIELD is array(integer range <>) of std_logic_vector(31 downto 0);
 	type shift_layers is array(5 downto 0, 31 downto 0) of std_logic;
 	
-	type MUX_SELECT is array(integer range <>) of std_logic_vector(1 downto 0); -- Used in the barrel_shifter to hold shift select
+	type MUX_SELECT is array(integer range <>) of std_logic_vector(1 downto 0);
 	
 	type OP_CODE is ( add, addi, lw, sw);
 	
