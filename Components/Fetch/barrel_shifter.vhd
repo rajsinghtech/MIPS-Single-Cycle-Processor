@@ -54,7 +54,9 @@ architecture structure of barrel_shifter is
 	end component;
 
   signal shift_layer_data : shift_layers;
-  signal shift_select: MUX_SELECT( 1 downto 0);
+
+  signal shift_select_0: std_logic_vector(MAX_SHIFT - 1 downto 0);
+  signal shift_select_1: std_logic_vector(MAX_SHIFT - 1 downto 0); 
   
   
 begin
@@ -69,7 +71,8 @@ begin
 		i_S => i_shamt(i),
 		i_D0 => "00",
 		i_D1 => i_shift_type,
-		o_O => shift_select(i)
+		o_O(0) => shift_select_0(i),
+		o_O(1) => shift_select_1(i)
 	);
  
 	G_SHIFT_MUX: for j in 0 to WORD_SIZE-1 generate
@@ -77,7 +80,8 @@ begin
 
 
 			MUX: mux4t1 port map( 
-				i_S => shift_select(i),
+				i_S(0) => shift_select_0(i),
+				i_S(1) => shift_select_1(i),
 				i_D0 => shift_layer_data(i,j),
 				i_D1 => shift_layer_data(i, j - (2 ** i)),
 				i_D2 => '0',
@@ -89,7 +93,8 @@ begin
 		SHIFT_LEFT_END : if j - (2 ** i) < 0 generate
 
 			MUX: mux4t1 port map( 
-				i_S=> shift_select(i),
+				i_S(0) => shift_select_0(i),
+				i_S(1) => shift_select_1(i),
 				i_D0 => shift_layer_data(i,j),
 				i_D1 => '0',
 				i_D2 => shift_layer_data(i, j + (2 ** i)),
@@ -101,7 +106,8 @@ begin
 		NORMAL_SHIFT : if j + (2 ** i) <= WORD_SIZE-1 and j - (2 ** i) >= 0 generate
 
 		MUX: mux4t1 port map( 
-			i_S => shift_select(i),
+			i_S(0) => shift_select_0(i),
+			i_S(1) => shift_select_1(i),
 			i_D0 => shift_layer_data(i,j),
 			i_D1 => shift_layer_data(i, j - (2 ** i)),
 			i_D2 => shift_layer_data(i, j + (2 ** i)),
