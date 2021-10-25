@@ -1,16 +1,16 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity or is
+entity xor_C is
 	generic ( N : integer := 32 );
 	port ( i_A: in std_logic_vector( N -1 downto 0 );
 		   i_B: in std_logic_vector( N -1 downto 0 );
 		   o_F: out std_logic_vector( N - 1 downto 0 ) );
-end or;		   
+end xor_C;		   
 
-architecture structure of or is
+architecture structure of xor_C is
 
-	component org2 is
+	component xorg2 is
 		port(i_A          : in std_logic;
 			 i_B          : in std_logic;
 			 o_F          : out std_logic);
@@ -18,10 +18,10 @@ architecture structure of or is
 	
 	begin
 	
-	G_OR: for i in 0 to N-1 generate
+	G_XOR: for i in 0 to N-1 generate
 	
 		ORG0: org2 port MAP (i_A => i_A(i), i_B => i_B(i), o_F => o_F(i));
 	
-	end generate G_OR;
+	end generate G_XOR;
 
 end structure;

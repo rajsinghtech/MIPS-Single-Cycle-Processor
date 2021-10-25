@@ -29,7 +29,7 @@ architecture structure of ALU is
 
 	end component;
 
-	component and is
+	component and_C is
 		generic( N: integer := N );
 		port(i_A          : in std_logic_vector( N - 1 downto 0);
 			 i_B          : in std_logic_vector( N - 1 downto 0);
@@ -37,7 +37,7 @@ architecture structure of ALU is
   
 	  end component;
 
-	  component or is
+	  component or_C is
 		generic( N: integer := N );
 		port(i_A          : in std_logic_vector( N - 1 downto 0);
 			 i_B          : in std_logic_vector( N - 1 downto 0);
@@ -45,7 +45,7 @@ architecture structure of ALU is
   
 	  end component;
 
-	  component nor is
+	  component nor_C is
 		generic( N: integer := N );
 		port(i_A          : in std_logic_vector( N - 1 downto 0);
 			 i_B          : in std_logic_vector( N - 1 downto 0);
@@ -53,7 +53,7 @@ architecture structure of ALU is
   
 	  end component;
 
-	  component xor is
+	  component xor_C is
 		generic( N: integer := N );
 		port(i_A          : in std_logic_vector( N - 1 downto 0);
 			 i_B          : in std_logic_vector( N - 1 downto 0);
@@ -109,19 +109,19 @@ begin
 				  i_B => mux_B,
 				  o_S => ripple_out);
 
-	and0: and
+	and0: and_C
 		generic map ( N => N ) 
 		port map( i_A => i_A,
 				  i_B => i_B,
 				  o_F => and_out);
 
-	or0: or
+	or0: or_C
 		generic map ( N => N ) 
 		port map( i_A => i_A,
 				  i_B => i_B,
 				  o_F => or_out);
 
-	nor0: nor
+	nor0: nor_C
 		generic map ( N => N ) 
 		port map( i_A => i_A,
 				  i_B => i_B,
@@ -133,7 +133,7 @@ begin
 				  i_B => i_B,
 				  o_F => o_Zero);
 
-	xor0: xor
+	xor0: xor_C
 		generic map ( N => N ) 
 		port map( i_A => i_A,
 				  i_B => i_B,
