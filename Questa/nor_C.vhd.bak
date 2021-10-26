@@ -27,7 +27,7 @@ architecture structure of nor_C is
 	
 	G_NOR: for i in 0 to N-1 generate
 	
-		ORG0: org2 port MAP (i_A => i_A(i), i_B => i_B(i), o_F => nF(i));
+		ORG0: invg port MAP (i_A => i_A(i), i_B => i_B(i), o_F => nF(i));
         INVG0: invg port MAP (i_A => nF(i), o_F => o_F(i));
 	
 	end generate G_NOR;
