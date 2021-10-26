@@ -80,6 +80,7 @@ architecture structure of ALU is
 	end component;	
 
 	signal datafield: DATA_FIELD(7 downto 0);
+	signal luisignal: std_logic_vector(N-1 downto 0) := (others =>'0');
 
 
 begin	
@@ -124,11 +125,21 @@ begin
 				  	  i_shift_type => i_ALUOP(2 downto 1),
 				  	  i_shamt => i_Shamt,
 				  	  o_shift_out  => datafield(5));
+
+	quad0: quadByte
+		port map( i_A => i_A,
+				  i_B => i_B,
+				  o_F => datafield(6));
+
+	-- LUI
+	luisignal(31 downto 16) <= i_A(15 downto 0);
+	datafield(7) <= luisignal;
 						
 	mainmux: NBitMux
 	generic map (NUM_SELECT => 3 ) 
 	port map( i_S  => i_ALUOP(5 downto 3),
 			  i_A => datafield,
 			  o_Q  => o_S);
+
   
 end structure;
