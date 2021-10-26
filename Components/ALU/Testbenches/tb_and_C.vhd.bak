@@ -23,7 +23,7 @@ architecture mixed of tb_and_C is
     signal o_F: std_logic_vector( N -1 downto 0 );
 
 begin
-    and0: and_C
+    addersubtractor0: and_C
     port map (i_A => i_A, i_B => i_B,  o_F => o_F);
 
     tcase0: process

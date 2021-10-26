@@ -1,0 +1,248 @@
+/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/invg_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/invg_N.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity invg_N
+-- Compiling architecture structural of invg_N
+
+} {} {}} /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_nor_C.vhd {2 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_nor_C.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Loading package NUMERIC_STD
+-- Loading package ENV
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_nor_C.vhd(6): (vcom-1516) Package "STD.ENV" does not exist in this language version.
+-- Compiling entity tb_nor_C
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_nor_C.vhd(10): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+-- Compiling architecture mixed of tb_nor_C
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_nor_C.vhd(21): (vcom-1143) Ambiguous parameter type to function 'To_StdLogicVector'.
+  Expression is illegal VHDL-1993 but legal VHDL-1987.
+  Suggest use of qualified expressions or VHDL-1987.
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_nor_C.vhd(22): (vcom-1143) Ambiguous parameter type to function 'To_StdLogicVector'.
+  Expression is illegal VHDL-1993 but legal VHDL-1987.
+  Suggest use of qualified expressions or VHDL-1987.
+
+} {} {}} /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Data_Types.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Data_Types.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling package Data_Types
+-- Compiling package body Data_Types
+-- Loading package Data_Types
+
+} {} {}} /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_ADD_SUB.vhd {2 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_ADD_SUB.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Loading package NUMERIC_STD
+-- Loading package ENV
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_ADD_SUB.vhd(6): (vcom-1516) Package "STD.ENV" does not exist in this language version.
+-- Compiling entity tb_ADD_SUB
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_ADD_SUB.vhd(10): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+-- Compiling architecture mixed of tb_ADD_SUB
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_ADD_SUB.vhd(22): (vcom-1143) Ambiguous parameter type to function 'To_StdLogicVector'.
+  Expression is illegal VHDL-1993 but legal VHDL-1987.
+  Suggest use of qualified expressions or VHDL-1987.
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_ADD_SUB.vhd(23): (vcom-1143) Ambiguous parameter type to function 'To_StdLogicVector'.
+  Expression is illegal VHDL-1993 but legal VHDL-1987.
+  Suggest use of qualified expressions or VHDL-1987.
+
+} {} {}} /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/dffg.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/dffg.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity dffg
+-- Compiling architecture mixed of dffg
+
+} {} {}} /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_Ripple_Adder.vhd {2 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_Ripple_Adder.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Loading package NUMERIC_STD
+-- Loading package ENV
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_Ripple_Adder.vhd(6): (vcom-1516) Package "STD.ENV" does not exist in this language version.
+-- Compiling entity tb_Ripple_Adder
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_Ripple_Adder.vhd(10): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+-- Compiling architecture mixed of tb_Ripple_Adder
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_Ripple_Adder.vhd(19): (vcom-1143) Ambiguous parameter type to function 'To_StdLogicVector'.
+  Expression is illegal VHDL-1993 but legal VHDL-1987.
+  Suggest use of qualified expressions or VHDL-1987.
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_Ripple_Adder.vhd(20): (vcom-1143) Ambiguous parameter type to function 'To_StdLogicVector'.
+  Expression is illegal VHDL-1993 but legal VHDL-1987.
+  Suggest use of qualified expressions or VHDL-1987.
+
+} {} {}} /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/or_C.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/or_C.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity or_C
+-- Compiling architecture structure of or_C
+
+} {} {}} /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/xor_C.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/xor_C.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity xor_C
+-- Compiling architecture structure of xor_C
+
+} {} {}} /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/and_C.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/and_C.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity and_C
+-- Compiling architecture structure of and_C
+
+} {} {}} /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/Fetch/Fetch.vhd {2 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/Fetch/Fetch.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package Data_Types
+-- Compiling entity fetch_logic
+-- Compiling architecture structure of fetch_logic
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/Fetch/Fetch.vhd(72): (vcom-1143) Ambiguous parameter type to function 'To_StdLogicVector'.
+  Expression is illegal VHDL-1993 but legal VHDL-1987.
+  Suggest use of qualified expressions or VHDL-1987.
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/Fetch/Fetch.vhd(81): (vcom-1143) Ambiguous parameter type to function 'To_StdLogicVector'.
+  Expression is illegal VHDL-1993 but legal VHDL-1987.
+  Suggest use of qualified expressions or VHDL-1987.
+
+} {} {}} /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/xorg2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/xorg2.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity xorg2
+-- Compiling architecture dataflow of xorg2
+
+} {} {}} /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/org2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/org2.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity org2
+-- Compiling architecture dataflow of org2
+
+} {} {}} /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Add_Sub.vhd {2 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Add_Sub.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Add_Sub
+-- Compiling architecture structure of Add_Sub
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Add_Sub.vhd(56): (vcom-1624) Component instance Add_Sub(structure).mux0 has a generic map clause and the component mux2t1_N has no generics.
+Generic map will be ignored.
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Add_Sub.vhd(79): (vcom-1624) Component instance Add_Sub(structure).mux1 has a generic map clause and the component mux2t1_N has no generics.
+Generic map will be ignored.
+
+} {} {}} /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/andg2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/andg2.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity andg2
+-- Compiling architecture dataflow of andg2
+
+} {} {}} /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/Fetch/barrel_shifter.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/Fetch/barrel_shifter.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package Data_Types
+-- Compiling entity barrel_shifter
+-- Compiling architecture structure of barrel_shifter
+
+} {} {}} /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/dffg_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/dffg_N.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity dffg_N
+-- Compiling architecture structural of dffg_N
+
+} {} {}} /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/invg.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/invg.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity invg
+-- Compiling architecture dataflow of invg
+
+} {} {}} /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/nor_C.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/nor_C.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity nor_C
+-- Compiling architecture structure of nor_C
+
+} {} {}} /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/fAdder.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/fAdder.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity fAdder
+-- Compiling architecture structure of fAdder
+
+} {} {}} /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_or_C.vhd {2 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_or_C.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Loading package NUMERIC_STD
+-- Loading package ENV
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_or_C.vhd(6): (vcom-1516) Package "STD.ENV" does not exist in this language version.
+-- Compiling entity tb_or_C
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_or_C.vhd(10): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+-- Compiling architecture mixed of tb_or_C
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_or_C.vhd(21): (vcom-1143) Ambiguous parameter type to function 'To_StdLogicVector'.
+  Expression is illegal VHDL-1993 but legal VHDL-1987.
+  Suggest use of qualified expressions or VHDL-1987.
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_or_C.vhd(22): (vcom-1143) Ambiguous parameter type to function 'To_StdLogicVector'.
+  Expression is illegal VHDL-1993 but legal VHDL-1987.
+  Suggest use of qualified expressions or VHDL-1987.
+
+} {} {}} /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_xor_C.vhd {2 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_xor_C.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Loading package NUMERIC_STD
+-- Loading package ENV
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_xor_C.vhd(6): (vcom-1516) Package "STD.ENV" does not exist in this language version.
+-- Compiling entity tb_xor_C
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_xor_C.vhd(10): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+-- Compiling architecture mixed of tb_xor_C
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_xor_C.vhd(21): (vcom-1143) Ambiguous parameter type to function 'To_StdLogicVector'.
+  Expression is illegal VHDL-1993 but legal VHDL-1987.
+  Suggest use of qualified expressions or VHDL-1987.
+** Warning: /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_xor_C.vhd(22): (vcom-1143) Ambiguous parameter type to function 'To_StdLogicVector'.
+  Expression is illegal VHDL-1993 but legal VHDL-1987.
+  Suggest use of qualified expressions or VHDL-1987.
+
+} {} {}} /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/Ripple_Adder.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/Ripple_Adder.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Ripple_Adder
+-- Compiling architecture structure of Ripple_Adder
+
+} {} {}}

@@ -4,6 +4,9 @@ z2
 Z0 !s99 nomlopt
 R0
 R0
+R0
+R0
+R0
 !s11e vcom 2021.2 2021.04, Apr 14 2021
 13
 !s112 1.1
@@ -13,574 +16,569 @@ R0
 cModel Technology
 Z1 d/home/rajsingh/Desktop/Lab 2/Questa
 T_opt
-!s110 1635213219
-VZVO<cIG=W>ee1SJ^aQH?J2
-Z2 04 10 5 work tb_add_sub mixed 1
-=1-0050569bbf27-61775fa2-a5673-3f73
-Z3 !s124 OEM100
-o-quiet -auto_acc_if_foreign -work work
+!s110 1635214148
+VNUVcAQIIFz0BSb^F6RcUQ1
+04 8 5 work tb_nor_c mixed 1
+=1-0050569bbf27-61776344-e792-4ea4
+Z2 !s124 OEM100
+Z3 o-quiet -auto_acc_if_foreign -work work +acc
 Z4 tCvgOpt 0
 n@_opt
 Z5 OL;O;2021.2;73
 R1
 T_opt1
-!s110 1635213242
-VdDc[6<of<of^7M7LC[ePP2
-04 15 5 work tb_ripple_adder mixed 1
-=1-0050569bbf27-61775fb9-ea933-3fd7
+!s110 1635214238
+V<]YZjUMfPUo=dh1Om2gUB3
+04 7 5 work tb_or_c mixed 1
+=1-0050569bbf27-6177639e-49534-4f70
+R2
 R3
-Z6 o-quiet -auto_acc_if_foreign -work work +acc
 R4
 n@_opt1
 R5
 R1
 T_opt2
-!s110 1635213342
-VQOAB^kzjfoL=mJ?X]5ZGk2
+!s110 1635214290
+Vb96:VG0foCzZk]TaM;kiz3
+04 8 5 work tb_xor_c mixed 1
+=1-0050569bbf27-617763d2-7f760-4ffc
 R2
-=1-0050569bbf27-6177601e-62b33-420c
 R3
-R6
 R4
 n@_opt2
 R5
 Eadd_sub
-Z7 w1635211503
-Z8 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z9 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 58
-Z10 d/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa
-Z11 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Add_Sub.vhd
-Z12 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Add_Sub.vhd
+Z6 w1635211503
+Z7 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z8 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 132
+Z9 d/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa
+Z10 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Add_Sub.vhd
+Z11 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Add_Sub.vhd
 l0
 L4 1
 VPDZg_naoCi=<Q>TIm1VG62
 !s100 GNMSYZFUNOVCc6dfXCN5[0
-Z13 OL;C;2021.2;73
+Z12 OL;C;2021.2;73
 32
-Z14 !s110 1635213326
+Z13 !s110 1635213925
 !i10b 1
 !i113 0
-Z15 o-work work -2002 -explicit
-Z16 tExplicit 1 CvgOpt 0
+Z14 o-work work -2002 -explicit
+Z15 tExplicit 1 CvgOpt 0
 Astructure
+R7
 R8
-R9
 DEx4 work 7 add_sub 0 22 PDZg_naoCi=<Q>TIm1VG62
-!i122 58
+!i122 132
 l45
 L13 74
 VNfHa2N;GU9fWoS4n9:`aL2
 !s100 EcfmgMlBO9Nieo8ONo?BB3
-R13
+R12
 32
-R14
+R13
 !i10b 1
 !i113 0
+R14
 R15
-R16
 Eand_c
+R6
 R7
 R8
+!i122 139
 R9
-!i122 65
-R10
-Z17 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/and_C.vhd
-Z18 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/and_C.vhd
+Z16 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/and_C.vhd
+Z17 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/and_C.vhd
 l0
 L4 1
 V^^a7MXHSF`QOeh<[IN@C22
 !s100 Y?S6_[UUe[4063j`b_gbI3
-R13
+R12
 32
-R14
+Z18 !s110 1635213926
 !i10b 1
 !i113 0
+R14
 R15
-R16
 Astructure
+R7
 R8
-R9
 DEx4 work 5 and_c 0 22 ^^a7MXHSF`QOeh<[IN@C22
-!i122 65
+!i122 139
 l19
 Z19 L11 17
 VSkm3AFk4A8@7UY;H3kD2F0
 !s100 C[ZGURXWfIa_2g7Lg:9IC2
-R13
+R12
 32
-R14
+R18
 !i10b 1
 !i113 0
+R14
 R15
-R16
-Einvg
+Ebarrel_shifter
+R6
+Z20 DPx4 work 10 data_types 0 22 KgT1Rhd:C8EaF<GQ`S0CA2
+Z21 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 R7
 R8
+!i122 151
 R9
-!i122 73
-R10
-Z20 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/invg.vhd
-Z21 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/invg.vhd
+Z22 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/Fetch/barrel_shifter.vhd
+Z23 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/Fetch/barrel_shifter.vhd
 l0
-Z22 L23 1
-Vi?8K<J8fz^65hSl<BCJfc2
-!s100 _XK?_^5z0Rm1<k12?;5R?2
-R13
+Z24 L26 1
+V4>_g<D3BViiB?UinnSL`Y1
+!s100 S;=`97;Xi8UhHbBP<OKXN0
+R12
 32
-Z23 !s110 1635213327
+Z25 !s110 1635213927
 !i10b 1
 !i113 0
+R14
 R15
-R16
-Adataflow
+Astructure
+R20
+R21
+R7
 R8
+DEx4 work 14 barrel_shifter 0 22 4>_g<D3BViiB?UinnSL`Y1
+!i122 151
+l62
+L36 92
+V;3Dk]mWQHK4PFM;k_=^O?2
+!s100 i=K;9I7K5Fcedc_N8lCAz2
+R12
+32
+R25
+!i10b 1
+!i113 0
+R14
+R15
+Pdata_types
+R21
+R7
+R8
+!i122 154
+R6
 R9
+Z26 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Data_Types.vhd
+Z27 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Data_Types.vhd
+l0
+L8 1
+VKgT1Rhd:C8EaF<GQ`S0CA2
+!s100 c3dVn9M^Z2cn3nE?Y<0?U2
+R12
+32
+b1
+Z28 !s110 1635213928
+!i10b 1
+!i113 0
+R14
+R15
+Bbody
+R20
+R21
+R7
+R8
+!i122 154
+l0
+L21 1
+VS=T]eP2FaH]_@3lfejkV50
+!s100 K8EX56miHMoMEilzVM5]Q0
+R12
+32
+R28
+!i10b 1
+!i113 0
+R14
+R15
+Edecode_logic
+w1635213419
+R20
+R21
+R7
+R8
+!i122 152
+R9
+8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/Fetch/Decode.vhd
+F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/Fetch/Decode.vhd
+l0
+R24
+VY1LVMd3K53nPKeC0H?C^k3
+!s100 dmTc2DWG;iVZVk1RCWzz11
+R12
+32
+R25
+!i10b 1
+!i113 0
+R14
+R15
+Edffg
+Z29 w1635213728
+R7
+R8
+!i122 148
+R9
+Z30 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/dffg.vhd
+Z31 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/dffg.vhd
+l0
+Z32 L23 1
+VjgD_<UZ1zVBDW^mk^5TO10
+!s100 T4gcXQGMCgKJbn8XhBM;b0
+R12
+32
+R25
+!i10b 1
+!i113 0
+R14
+R15
+Amixed
+R7
+R8
+DEx4 work 4 dffg 0 22 jgD_<UZ1zVBDW^mk^5TO10
+!i122 148
+l37
+L33 29
+Vf;Mb[CToCHDb6>olH_6Sd3
+!s100 iOdlTUid@@]UimFK_53^C1
+R12
+32
+R25
+!i10b 1
+!i113 0
+R14
+R15
+Edffg_n
+R29
+R7
+R8
+!i122 149
+R9
+Z33 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/dffg_N.vhd
+Z34 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/dffg_N.vhd
+l0
+L4 1
+VgF^egk4CJP1G0nf?PkZIT2
+!s100 o01<gD7l::l3e=PT92f?N3
+R12
+32
+R25
+!i10b 1
+!i113 0
+R14
+R15
+Astructural
+R7
+R8
+DEx4 work 6 dffg_n 0 22 gF^egk4CJP1G0nf?PkZIT2
+!i122 149
+l24
+L14 21
+VmYkzn2=Z^^Rzd^>:jmacV0
+!s100 QB3_3721D;R@3R<5ehAdL3
+R12
+32
+R25
+!i10b 1
+!i113 0
+R14
+R15
+Efadder
+R29
+R7
+R8
+!i122 150
+R9
+Z35 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/fAdder.vhd
+Z36 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/fAdder.vhd
+l0
+L4 1
+ViXo7F<cQ<aYzJSaJQLIkc3
+!s100 MQ7g;U4l]mDM4A5no_Wf[1
+R12
+32
+R25
+!i10b 1
+!i113 0
+R14
+R15
+Astructure
+R7
+R8
+DEx4 work 6 fadder 0 22 iXo7F<cQ<aYzJSaJQLIkc3
+!i122 150
+l39
+L14 59
+VdA3Lfh>Y=lP5==OD;13>?2
+!s100 9WW8L[=M3N71=oQK`izNK3
+R12
+32
+R25
+!i10b 1
+!i113 0
+R14
+R15
+Efetch_logic
+R6
+R20
+R21
+R7
+R8
+!i122 153
+R9
+Z37 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/Fetch/Fetch.vhd
+Z38 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/Fetch/Fetch.vhd
+l0
+R24
+V]UXR5c9T2F;m4j_FY0C>l0
+!s100 oHnkD=fa=6zh7;X^XfB:40
+R12
+32
+R25
+!i10b 1
+!i113 0
+R14
+R15
+Astructure
+R20
+R21
+R7
+R8
+DEx4 work 11 fetch_logic 0 22 ]UXR5c9T2F;m4j_FY0C>l0
+!i122 153
+l88
+L38 103
+VANXMa0m1nibR?4nHGOiVD0
+!s100 ZXPLK1[kWLel^ZXQIa9592
+R12
+32
+R25
+!i10b 1
+!i113 0
+R14
+R15
+Einvg
+R6
+R7
+R8
+!i122 147
+R9
+Z39 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/invg.vhd
+Z40 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/invg.vhd
+l0
+R32
+Vi?8K<J8fz^65hSl<BCJfc2
+!s100 _XK?_^5z0Rm1<k12?;5R?2
+R12
+32
+R25
+!i10b 1
+!i113 0
+R14
+R15
+Adataflow
+R7
+R8
 DEx4 work 4 invg 0 22 i?8K<J8fz^65hSl<BCJfc2
-!i122 73
+!i122 147
 l31
 L30 6
 V59WL2G3_iU9D3YcIf[eGI1
 !s100 bk7I76o8e1LURdoZEQb8H0
-R13
+R12
 32
-R23
+R25
 !i10b 1
 !i113 0
+R14
 R15
-R16
 Einvg_n
+R6
 R7
 R8
+!i122 145
 R9
-!i122 71
-R10
-Z24 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/invg_N.vhd
-Z25 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/invg_N.vhd
+Z41 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/invg_N.vhd
+Z42 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/invg_N.vhd
 l0
 L4 1
 VhLAiGWhJSAGIb`3KcHhbB1
 !s100 e]GQ`S`KSRj3d@c7m^9LX2
-R13
+R12
 32
-R23
+R25
 !i10b 1
 !i113 0
+R14
 R15
-R16
 Astructural
+R7
 R8
-R9
 DEx4 work 6 invg_n 0 22 hLAiGWhJSAGIb`3KcHhbB1
-!i122 71
+!i122 145
 l18
 L11 16
 V7m@UzPObdU_iGKN4bhMFL1
 !s100 VmCiA6g@bf9gQ;@TiGi321
-R13
+R12
 32
-R23
+R25
 !i10b 1
 !i113 0
+R14
 R15
-R16
 Enor_c
-Z26 w1635213186
+Z43 w1635213186
+R7
 R8
+!i122 140
 R9
-!i122 66
-R10
-Z27 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/nor_C.vhd
-Z28 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/nor_C.vhd
+Z44 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/nor_C.vhd
+Z45 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/nor_C.vhd
 l0
 L4 1
 Vh5R_zZUfA`Kfk?A6JR]351
 !s100 8hY`_9=YL=ld?f]^9VFj`3
-R13
+R12
 32
-R14
+R18
 !i10b 1
 !i113 0
+R14
 R15
-R16
 Astructure
+R7
 R8
-R9
 DEx4 work 5 nor_c 0 22 h5R_zZUfA`Kfk?A6JR]351
-!i122 66
+!i122 140
 l26
 L11 25
 VfLWcd@YzJ0m<B[^L>W0Yn0
 !s100 b:TGVUiR^^kO24QK:2MYS0
-R13
+R12
 32
-R14
+R18
 !i10b 1
 !i113 0
+R14
 R15
-R16
 Eor_c
+R6
 R7
 R8
+!i122 141
 R9
-!i122 67
-R10
-Z29 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/or_C.vhd
-Z30 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/or_C.vhd
+Z46 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/or_C.vhd
+Z47 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/or_C.vhd
 l0
 L4 1
 VzI=l`9AI59`Dzac@a_>Ke3
 !s100 Z<?YL`7R@U>LMEN21jK^72
-R13
+R12
 32
-R23
+R18
 !i10b 1
 !i113 0
+R14
 R15
-R16
 Astructure
+R7
 R8
-R9
 DEx4 work 4 or_c 0 22 zI=l`9AI59`Dzac@a_>Ke3
-!i122 67
+!i122 141
 l19
 R19
 V`gdznKifIY[P499fjNK4e1
 !s100 5;Qebz;5f56k4PCVUd7_P0
-R13
+R12
 32
-R23
+R18
 !i10b 1
 !i113 0
+R14
 R15
-R16
 Eorg2
+R6
 R7
 R8
+!i122 144
 R9
-!i122 70
-R10
-Z31 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/org2.vhd
-Z32 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/org2.vhd
+Z48 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/org2.vhd
+Z49 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/org2.vhd
 l0
-R22
+R32
 VB2]3[a<V5f9`9eUg6`KhC1
 !s100 bGQ1F9eW^Q17OoL9h4g7z2
-R13
+R12
 32
-R23
+R18
 !i10b 1
 !i113 0
+R14
 R15
-R16
 Adataflow
-R8
-R9
-DEx4 work 4 org2 0 22 B2]3[a<V5f9`9eUg6`KhC1
-!i122 70
-l32
-Z33 L31 6
-VkAR2[YaYRaj6fWNP]W0nE3
-!s100 h5_AzR3TdRA0a_K=dQ>mI2
-R13
-32
-R23
-!i10b 1
-!i113 0
-R15
-R16
-Eripple_adder
 R7
 R8
+DEx4 work 4 org2 0 22 B2]3[a<V5f9`9eUg6`KhC1
+!i122 144
+l32
+Z50 L31 6
+VkAR2[YaYRaj6fWNP]W0nE3
+!s100 h5_AzR3TdRA0a_K=dQ>mI2
+R12
+32
+R18
+!i10b 1
+!i113 0
+R14
+R15
+Eripple_adder
+R6
+R7
+R8
+!i122 142
 R9
-!i122 68
-R10
-Z34 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/Ripple_Adder.vhd
-Z35 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/Ripple_Adder.vhd
+Z51 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/Ripple_Adder.vhd
+Z52 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/Ripple_Adder.vhd
 l0
 L4 1
 V4:LJHfW?^TCMA]FQac?4a0
 !s100 W1]3A=o;lCX?]`En1Mm_Z3
-R13
+R12
 32
-R23
+R18
 !i10b 1
 !i113 0
+R14
 R15
-R16
 Astructure
+R7
 R8
-R9
 DEx4 work 12 ripple_adder 0 22 4:LJHfW?^TCMA]FQac?4a0
-!i122 68
+!i122 142
 l26
 L12 31
 VS9P2^:ggN3m0JLheI7bTi2
 !s100 dSPh5c9;6RKb:]d>4MS1f1
-R13
+R12
 32
-R23
+R18
 !i10b 1
 !i113 0
+R14
 R15
-R16
 Etb_add_sub
+R6
+Z53 DPx3 std 3 env 0 22 d?`1ck@NdeD@H3RZG7FgZ2
+R21
+Z54 DPx4 ieee 16 std_logic_textio 0 22 8]8<fKiYoHe;_IDO3kmNH2
 R7
-Z36 DPx3 std 3 env 0 22 d?`1ck@NdeD@H3RZG7FgZ2
-Z37 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
-Z38 DPx4 ieee 16 std_logic_textio 0 22 8]8<fKiYoHe;_IDO3kmNH2
 R8
+!i122 133
 R9
-!i122 59
-R10
-Z39 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_ADD_SUB.vhd
-Z40 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_ADD_SUB.vhd
-l0
-L9 1
-VbJ`9B[<VD<KRUKbhokjQH2
-!s100 V^O7@dSnPUllLh4Z:ocCS3
-R13
-32
-R14
-!i10b 1
-!i113 0
-R15
-R16
-Amixed
-R36
-R37
-R38
-R8
-R9
-DEx4 work 10 tb_add_sub 0 22 bJ`9B[<VD<KRUKbhokjQH2
-!i122 59
-l27
-L13 39
-V<JokH32;lK7:O_C]R=64<0
-!s100 BZW]O<lB2=V9KPOGn7M5a0
-R13
-32
-R14
-!i10b 1
-!i113 0
-R15
-R16
-Etb_and_c
-R7
-R36
-R37
-R38
-R8
-R9
-!i122 60
-R10
-Z41 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_and_C.vhd
-Z42 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_and_C.vhd
-l0
-L9 1
-VRch1DVP1k`Fi>VGEPMbO>1
-!s100 YFm`F@djiOC2H_alY;CPa2
-R13
-32
-R14
-!i10b 1
-!i113 0
-R15
-R16
-Amixed
-R36
-R37
-R38
-R8
-R9
-DEx4 work 8 tb_and_c 0 22 Rch1DVP1k`Fi>VGEPMbO>1
-!i122 60
-l25
-Z43 L13 29
-VNYGacAHVeoDG<HRPfGfLV0
-!s100 :K4Zoh_WJCEZoIlHXKUQa0
-R13
-32
-R14
-!i10b 1
-!i113 0
-R15
-R16
-Etb_nor_c
-R7
-R36
-R37
-R38
-R8
-R9
-!i122 61
-R10
-Z44 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_nor_C.vhd
-Z45 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_nor_C.vhd
-l0
-L9 1
-Vj2b1XEXEf@18iWJ;MbaXJ3
-!s100 n5UNiQUz4JI:N=oFK1gaD3
-R13
-32
-R14
-!i10b 1
-!i113 0
-R15
-R16
-Amixed
-R36
-R37
-R38
-R8
-R9
-DEx4 work 8 tb_nor_c 0 22 j2b1XEXEf@18iWJ;MbaXJ3
-!i122 61
-l25
-R43
-Vad4Y?282g;5[Yd4VSYg6^1
-!s100 [`N31N0E>UoL;k`ZS3]i;2
-R13
-32
-R14
-!i10b 1
-!i113 0
-R15
-R16
-Etb_or_c
-R7
-R36
-R37
-R38
-R8
-R9
-!i122 62
-R10
-Z46 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_or_C.vhd
-Z47 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_or_C.vhd
-l0
-L9 1
-VO@E=_TMNUdZWa86M_g7:51
-!s100 :L2ke1QN41HeiNBKQogc_2
-R13
-32
-R14
-!i10b 1
-!i113 0
-R15
-R16
-Amixed
-R36
-R37
-R38
-R8
-R9
-DEx4 work 7 tb_or_c 0 22 O@E=_TMNUdZWa86M_g7:51
-!i122 62
-l25
-R43
-VE;_TfJ^[MY82DY3fnzC4T1
-!s100 B=F@R5B<5QUc:bAf;VPU53
-R13
-32
-R14
-!i10b 1
-!i113 0
-R15
-R16
-Etb_ripple_adder
-R7
-R36
-R37
-R38
-R8
-R9
-!i122 63
-R10
-Z48 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_Ripple_Adder.vhd
-Z49 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_Ripple_Adder.vhd
-l0
-L9 1
-Vl;X7iNE8bG:Z7o7V^;J?:2
-!s100 NcEB3fYZiQzGzYjObMm9B2
-R13
-32
-R14
-!i10b 1
-!i113 0
-R15
-R16
-Amixed
-R36
-R37
-R38
-R8
-R9
-DEx4 work 15 tb_ripple_adder 0 22 l;X7iNE8bG:Z7o7V^;J?:2
-!i122 63
-l23
-L13 28
-VgYgPgJ0=eLTzURZ:1IYB;1
-!s100 ]Pl80^N>72<g1Qag0fMiC1
-R13
-32
-R14
-!i10b 1
-!i113 0
-R15
-R16
-Etb_xor_c
-R7
-R36
-R37
-R38
-R8
-R9
-!i122 64
-R10
-Z50 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_xor_C.vhd
-Z51 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Components/ALU/Testbenches/tb_xor_C.vhd
-l0
-L9 1
-VmQkO;Pc5hS7?I^DYL@Oi@1
-!s100 Bh]Qaeal`23g8^J6=NV;W0
-R13
-32
-R14
-!i10b 1
-!i113 0
-R15
-R16
-Amixed
-R36
-R37
-R38
-R8
-R9
-DEx4 work 8 tb_xor_c 0 22 mQkO;Pc5hS7?I^DYL@Oi@1
-!i122 64
-l25
-R43
-V1^Pg9N?V?Q;W[^<3VMjN^0
-!s100 [6lR@W3c]hSlWRgRQLg863
-R13
-32
-R14
-!i10b 1
-!i113 0
-R15
-R16
-Exor_c
-Z52 w1635212936
-R8
-R9
-!i122 69
-R10
-Z53 8/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/xor_C.vhd
-Z54 F/home/rajsingh/Desktop/Git/MIPS-Single-Cycle-Processor/Questa/xor_C.vhd
-l0
-L4 1
-VCm255
+Z55 8/home/rajsingh/Desktop/Git/MIPS-Sinm255
 K4
 z2
 !s8c locked
