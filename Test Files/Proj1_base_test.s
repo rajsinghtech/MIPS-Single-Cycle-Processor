@@ -67,6 +67,8 @@ main:
     subu $a0, $s1, $s1
     jal print
     
+    # expect 02020202
+    REPL.QB $a0, 2
 
     # Exit program
 exit:  
