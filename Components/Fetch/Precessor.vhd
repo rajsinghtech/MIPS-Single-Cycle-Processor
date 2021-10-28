@@ -245,7 +245,7 @@ begin
                  o_S    => return_addr);
     
     RegFile: RegisterFile 
-        generic map ( NUM_SELECT => ADDR_LEN)
+        generic map ( NUM_SELECT => 5)
         port map(i_D => write_data, 
                 i_WE => reg_write,
                 i_CLK => clk,
