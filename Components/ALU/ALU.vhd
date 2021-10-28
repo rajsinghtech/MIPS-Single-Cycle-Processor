@@ -4,7 +4,7 @@ use work.Data_Types.all;
 
 
 entity ALU is
-  generic( N: integer := 32; NUM_SELECT: integer := 3);
+  generic( N: integer := 32; NUM_SELECT: integer := 4);
   port(i_A : in std_logic_vector(N-1 downto 0);
        i_B : in std_logic_vector(N-1 downto 0);
 	   i_Shamt : in std_logic_vector(4 downto 0);
@@ -108,7 +108,7 @@ begin
 		generic map ( N => N ) 
 		port map( i_A => i_A,
 				  i_B => i_B,
-				  nAdd_Sub => i_ALUOP(0),
+				  nAdd_Sub => i_ALUOP(NUM_SELECT - 1),
 				  o_S => datafield(0));
 
 	and0: and_C
@@ -137,7 +137,7 @@ begin
 
 	barrel: barrel_shifter
 			port map( i_src  => i_B,
-				  	  i_shift_type => i_ALUOP(2 downto 1),
+				  	  i_shift_type => i_ALUOP(NUM_SELECT - 1 downto NUM_SELECT - 2),
 				  	  i_shamt => i_Shamt,
 				  	  o_shift_out  => datafield(5));
 
