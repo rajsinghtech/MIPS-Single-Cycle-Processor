@@ -186,7 +186,7 @@ begin
     
     datamemory: mem
     generic map(ADDR_WIDTH => 10)
-		port map( addr => alu_out,
+		port map( addr => alu_out( 9 downto 0),
                   data => rt,
                   we => mem_write,
                   q => mem_out,
