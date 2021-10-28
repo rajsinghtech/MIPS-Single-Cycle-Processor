@@ -24,16 +24,14 @@ use IEEE.Numeric_Std.all;
 use work.Data_Types.all;
 
 entity fetch_logic is
-  generic(J_TYPE_LEN: integer := 4; IMMEDIATE_LEN: integer := 16; ADDR_LEN: integer := 32; WORD_SIZE: integer := 32);
+  generic( IMMEDIATE_LEN: integer := 16; ADDR_LEN: integer := 32; WORD_SIZE: integer := 32);
   port (
     i_imm : in std_logic_vector( IMMEDIATE_LEN - 1 downto 0 );
     i_addr: in std_logic_vector( ADDR_LEN - 1 downto 0 );
-    instruction : in std_logic_vector( ADDR_LEN - 1 downto 0);
     i_clk : in std_logic;
     branch_pass : in std_logic;
     jump : in std_logic;
-    jmp_ins : in std_logic;
-    o_inst : out std_logic_vector( WORD_SIZE - 1 downto 0 )
+    jmp_ins : in std_logic
   );
 end fetch_logic;
 
@@ -128,7 +126,5 @@ begin
             i_D0    => branch_jump,
             i_D1    => i_addr,
             o_O     => next_address);	
-
-  o_inst <= next_address;
 
 end structure;

@@ -5,7 +5,7 @@ use IEEE.Numeric_Std.all;
 use work.Data_Types.all;
 
 entity precessor is
-    generic( J_TYPE_LEN: integer := 4; IMMEDIATE_LEN: integer := 16; ADDR_LEN: integer := 32; WORD_SIZE: integer := 32; WORD_SIZE: integer := 32);
+    generic( IMMEDIATE_LEN: integer := 16; ADDR_LEN: integer := 32; WORD_SIZE: integer := 32; WORD_SIZE: integer := 32);
     
   
   end precessor;
@@ -22,13 +22,14 @@ entity precessor is
       end component;
 
       component fetch_logic is
-        port(i_imm : in std_logic_vector( IMMEDIATE_LEN - 1 downto 0 );
-        i_addr: in std_logic_vector( ADDR_LEN - 1 downto 0 );
-        instruction : in std_logic_vector( ADDR_LEN - 1 downto 0);
-        i_clk : in std_logic;
-        j_type: in std_logic_vector( J_TYPE_LEN - 1 downto 0);
-        o_inst : out std_logic_vector( WORD_SIZE - 1 downto 0 ));
-
+        port (
+          i_imm : in std_logic_vector( IMMEDIATE_LEN - 1 downto 0 );
+          i_addr: in std_logic_vector( ADDR_LEN - 1 downto 0 );
+          i_clk : in std_logic;
+          branch_pass : in std_logic;
+          jump : in std_logic;
+          jmp_ins : in std_logic
+        );
 
       end component;
 
@@ -236,11 +237,11 @@ begin
 
     FetchLogic: fetch_logic 
         port MAP (i_imm => cur_ins,
-                  i_addr => xxx,
-                  instruction => xxx,
+                  i_addr => cur_ins(25 downto 0),
                   i_clk => clk,
-                  j_type: => xxx,
-                  o_inst => xxx);
+                  branch_pass: => branch,
+                  jump => jump,
+                  jmp_ins => jmpIns);
                                       
     DecodeLogic: decode_logic 
         port MAP (i_instruction => cur_ins,
