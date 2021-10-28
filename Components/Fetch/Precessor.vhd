@@ -100,7 +100,7 @@ entity precessor is
       end component;
 
       component mem 
-      generic(DATA_WIDTH : natural := 32; ADDR_WIDTH : natural := 10);
+      generic(DATA_WIDTH : natural);
         port (clk		: in std_logic;
 		      addr	        : in std_logic_vector((ADDR_WIDTH-1) downto 0);
 		      data	        : in std_logic_vector((DATA_WIDTH-1) downto 0);
@@ -185,6 +185,7 @@ begin
                   clk => clk);
     
     datamemory: mem
+    generic map(DATA_WIDTH => 10)
 		port map( addr(9 downto 0) => alu_out,
               addr => (others => '-'),
                   data => rt,
