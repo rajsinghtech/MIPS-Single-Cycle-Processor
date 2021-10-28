@@ -30,7 +30,9 @@ entity fetch_logic is
     i_addr: in std_logic_vector( ADDR_LEN - 1 downto 0 );
     instruction : in std_logic_vector( ADDR_LEN - 1 downto 0);
     i_clk : in std_logic;
-    j_type: in std_logic_vector( J_TYPE_LEN - 1 downto 0);
+    branch_pass : in std_logic;
+    jump : in std_logic;
+    jmp_ins : in std_logic;
     o_inst : out std_logic_vector( WORD_SIZE - 1 downto 0 )
   );
 end fetch_logic;
@@ -108,23 +110,25 @@ begin
 
   Branch_Reg: mux2t1_N
   port map(
-            i_S     => j_type(3),
-            i_D0    => branch_address,
-            i_D1    => i_addr,
+            i_S     => branch_pass,
+            i_D0    => next_instruction,
+            i_D1    => branch_address,
             o_O     => branch_or_register);
 
   branch_jump_calc: mux2t1_N
   port map(
-            i_S     => j_type(2),
-            i_D0    => jump_address,
-            i_D1    => branch_or_register,
+            i_S     => jump,
+            i_D0    => branch_or_register,
+            i_D1    => jump_address,
             o_O     => branch_jump);
 
   next_address_calc: mux2t1_N
   port map(
-            i_S     => j_type(1),
-            i_D0    => next_instruction,
-            i_D1    => branch_jump,
+            i_S     => jmp_ins,
+            i_D0    => branch_jump,
+            i_D1    => i_addr,
             o_O     => next_address);	
+
+  o_inst <= next_address;
 
 end structure;
