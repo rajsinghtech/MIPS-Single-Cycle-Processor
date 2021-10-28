@@ -179,14 +179,16 @@ begin
 		port map( addr => pc_ins,
                   data => (others =>'0'),
                   we => '0',
-                  q => cur_ins);
+                  q => cur_ins,
+                  clk => clk);
     
     datamemory: mem
 		generic map ( N => WORD_SIZE ) 
 		port map( addr => alu_out,
                   data => rt,
                   we => mem_write,
-                  q => mem_out);
+                  q => mem_out,
+                  clk => clk);
 
     wb_mux: mux2t1_N
 		generic map ( N => WORD_SIZE ) 
