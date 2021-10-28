@@ -99,14 +99,13 @@ entity precessor is
              o_O          : out std_logic);
       end component;
 
-      component mem 
-      generic ( DATA_WIDTH : natural := 32; ADDR_WIDTH : natural := 32);
-        port (clk		: in std_logic;
-		      addr	        : in std_logic_vector((ADDR_WIDTH-1) downto 0);
-		      data	        : in std_logic_vector((DATA_WIDTH-1) downto 0);
-		      we		: in std_logic;
-		      q		: out std_logic_vector((DATA_WIDTH -1) downto 0));
-  
+      component mem
+      port(
+          clk		: in std_logic;
+          addr	        : in std_logic_vector((ADDR_WIDTH-1) downto 0);
+          data	        : in std_logic_vector((DATA_WIDTH-1) downto 0);
+          we		: in std_logic := '1';
+          q		: out std_logic_vector((DATA_WIDTH -1) downto 0));
       end component;
 
       component invg is
@@ -182,13 +181,12 @@ begin
                   we => '0',
                   q => cur_ins,
                   clk => clk);
-    
-    datamemory: mem
-		port map( addr => alu_out,
-                  data => rt,
-                  we => mem_write,
-                  q => mem_out,
-                  clk => clk);
+    datamemory: mem 
+    port map(data => rt, 
+              we => mem_write,
+              clk => clk,
+              addr => alu_out,
+              q => mem_out);
 
     wb_mux: mux2t1_N
 		generic map ( N => WORD_SIZE ) 
