@@ -30,12 +30,12 @@ begin
 					   o_F => carry(0));
 
 	G_NBit_NOR: for i in 1 to N-1 generate
-		org2: org2 port map(i_A => carry(i-1),
+		org2C: org2 port map(i_A => carry(i-1),
 						    i_B => i_A(i),
 						    o_F => carry(i));
 	end generate G_NBit_NOR;
 
-	org1: org2 port map(i_A => carry(N-1),
+	inv1: invg port map(i_A => carry(N-1),
 					   o_F => o_S);
   
 end structure;

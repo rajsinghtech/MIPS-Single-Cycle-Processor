@@ -16,8 +16,8 @@ architecture mixed of tb_Ripple_Adder is
 		port (i_A: in std_logic_vector; i_B: in std_logic_vector; o_S: out std_logic_vector);
 	end component;
 
-	signal i_A: std_logic_vector( N - 1 downto 0 ) :=  to_stdlogicvector(x"0000000f");
-	signal i_B: std_logic_vector( N - 1 downto 0 ) :=  to_stdlogicvector(x"f0000000");
+	signal i_A: std_logic_vector( N - 1 downto 0 ) :=  to_stdlogicvector(x"0000ffff");
+	signal i_B: std_logic_vector( N - 1 downto 0 ) :=  to_stdlogicvector(x"ffff0000");
 	signal o_S: std_logic_vector( N -1 downto 0 );
 
 begin

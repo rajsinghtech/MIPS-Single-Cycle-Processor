@@ -1,5 +1,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
+use work.Data_Types.all;
+
 
 entity ALU is
   generic( N: integer := 32; NUM_SELECT: integer := 3);
@@ -61,6 +63,19 @@ architecture structure of ALU is
 			 o_F          : out std_logic_vector( N - 1 downto 0));
   
 	  end component;
+	  component nor_N is
+		generic( N: integer := N );
+		port(i_A          : in std_logic_vector( N - 1 downto 0);
+			 o_S          : out std_logic);
+  
+	  end component;
+
+	  component quadByte is
+		generic( N: integer := N );
+		port(i_A          : in std_logic_vector( N - 1 downto 0);
+			 o_F          : out std_logic_vector( N - 1 downto 0));
+  
+	  end component;
 	
 
 	component NBitMux is
@@ -74,7 +89,7 @@ architecture structure of ALU is
 	component barrel_shifter is
 		port(i_src          : in std_logic_vector(N-1 downto 0);
 			 i_shift_type   : in std_logic_vector(1 downto 0);
-			 i_shamt		: in std_logic_vector(N5-1 downto 0);
+			 i_shamt		: in std_logic_vector(4 downto 0);
 			 o_shift_out    : out std_logic_vector(N-1 downto 0));
 
 	end component;	
@@ -92,8 +107,8 @@ begin
 	adder0: Add_Sub
 		generic map ( N => N ) 
 		port map( i_A => i_A,
-				  i_B => mux_B,
-				  nAddSub => i_ALUOP(0),
+				  i_B => i_B,
+				  nAdd_Sub => i_ALUOP(0),
 				  o_S => datafield(0));
 
 	and0: and_C
@@ -128,7 +143,6 @@ begin
 
 	quad0: quadByte
 		port map( i_A => i_A,
-				  i_B => i_B,
 				  o_F => datafield(6));
 
 	-- LUI
