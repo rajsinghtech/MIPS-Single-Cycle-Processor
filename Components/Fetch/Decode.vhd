@@ -65,6 +65,7 @@ architecture structure of decode_logic is
 
   op_code <= i_instruction(31 downto 26);
   func_code <= i_instruction(5 downto 0);
+  o_shamt <= i_instruction(10 downto 6);
 
   o_jump <= '1' when op_code = DECODE_OP(jc)
                 else '1' when op_code = DECODE_OP(jalc)
@@ -79,16 +80,22 @@ architecture structure of decode_logic is
   
   -- TODO ALU OP
 
-  o_ALUSrc <= '1' when DECODE_OP(r_type) & op_code = DECODE_OP(addic)
-                else '1' when DECODE_OP(r_type) & op_code = DECODE_OP(addiuc)
-                else '1' when DECODE_OP(r_type) & op_code = DECODE_OP(andic)
-                else '1' when DECODE_OP(r_type) & op_code = DECODE_OP(luic)
-                else '1' when DECODE_OP(r_type) & op_code = DECODE_OP(xori)
-                else '1' when DECODE_OP(r_type) & op_code = DECODE_OP(oric)
-                else '1' when DECODE_OP(r_type) & op_code = DECODE_OP(sltic)
+  o_ALUSrc <= '1' when op_code = DECODE_OP(r_type) & func_code = DECODE_FUNC(addic)
+                else '1' when op_code = DECODE_OP(r_type) & func_code = DECODE_FUNC(addiuc)
+                else '1' when op_code = DECODE_OP(r_type) & func_code = DECODE_FUNC(andic)
+                else '1' when op_code = DECODE_OP(r_type) & func_code = DECODE_FUNC(luic)
+                else '1' when op_code = DECODE_OP(r_type) & func_code = DECODE_FUNC(xori)
+                else '1' when op_code = DECODE_OP(r_type) & func_code = DECODE_FUNC(oric)
+                else '1' when op_code = DECODE_OP(r_type) & func_code = DECODE_FUNC(sltic)
                 else '0'; 
   
   o_jumpIns <= '1' when op_code = DECODE_OP(jrc)
                 else '0';
+    
+  o_regWrite <= '1' when DECODE_OP(r_type) & !(func_code = DECODE_FUNC(jrc))
+                  else '0';
+
+  o_link <= '1' when op_code = DECODE_OP(jalc)
+              else '0';
   
 end structure;

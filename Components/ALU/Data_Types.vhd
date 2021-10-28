@@ -15,9 +15,9 @@ package Data_Types is
 	type FUNC_CODE is ( addc, addic, addiuc, adduc, andc, andic, luic, norc, xorc, xori, orc, oric, sltc, sltic, sllc, srlc, srac,subc, subuc, jrc, quadc);
 	
 
-	type ALUENCODING_ARRAY is array(OP_CODE) of std_logic_vector(5 downto 0);
+	type ALUENCODING_ARRAY is array(ALU_ENCODING) of std_logic_vector(5 downto 0);
 	type OPCODE_ARRAY is array(OP_CODE) of std_logic_vector(5 downto 0);
-	type FUNCCODE_ARRAY is array(OP_CODE) of std_logic_vector(5 downto 0);
+	type FUNCCODE_ARRAY is array(FUNC_CODE) of std_logic_vector(5 downto 0);
 	
 	constant DECODE_ALU_ENCODING : ALUENCODING_ARRAY;
 	constant DECODE_OP : OPCODE_ARRAY;
