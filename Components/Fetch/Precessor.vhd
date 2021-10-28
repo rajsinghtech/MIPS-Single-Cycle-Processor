@@ -26,6 +26,7 @@ entity precessor is
           i_imm : in std_logic_vector( IMMEDIATE_LEN - 1 downto 0 );
           i_addr: in std_logic_vector( ADDR_LEN - 1 downto 0 );
           i_clk : in std_logic;
+          jmp_imm : in std_logic_vector( 25 downto 0);
           branch_pass : in std_logic;
           jump : in std_logic;
           jmp_ins : in std_logic
@@ -237,8 +238,9 @@ begin
 
     FetchLogic: fetch_logic 
         port MAP (i_imm => cur_ins,
-                  i_addr => cur_ins(25 downto 0),
+                  i_addr => rs,
                   i_clk => clk,
+                  jmp_imm => cur_ins(25 downto 0),
                   branch_pass: => branch,
                   jump => jump,
                   jmp_ins => jmpIns);

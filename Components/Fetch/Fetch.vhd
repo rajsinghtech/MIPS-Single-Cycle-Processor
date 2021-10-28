@@ -29,6 +29,7 @@ entity fetch_logic is
     i_imm : in std_logic_vector( IMMEDIATE_LEN - 1 downto 0 );
     i_addr: in std_logic_vector( ADDR_LEN - 1 downto 0 );
     i_clk : in std_logic;
+    jmp_imm : in std_logic_vector( 25 downto 0);
     branch_pass : in std_logic;
     jump : in std_logic;
     jmp_ins : in std_logic
@@ -102,7 +103,7 @@ begin
             o_S    => branch_address);
 		   
 	jump_address( 31 downto 28) <= program_counter( 31 downto 28);
-	jump_address( 27 downto 2) <= instruction( 25 downto 0);
+	jump_address( 27 downto 2) <= instruction;
 	jump_address( 1 downto 0) <= "00";
 	
 
