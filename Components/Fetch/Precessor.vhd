@@ -177,7 +177,7 @@ entity precessor is
 begin
 
     instructionmemory: mem
-    generic map(ADDR_WIDTH => WORD_SIZE)
+    generic map(ADDR_WIDTH => WORD_SIZE, DATA_WIDTH => WORD_SIZE)
 		port map( addr => pc_ins,
                   data => (others =>'0'),
                   we => '0',
@@ -185,7 +185,7 @@ begin
                   clk => clk);
     
     datamemory: mem
-    generic map(ADDR_WIDTH => 10)
+    generic map(ADDR_WIDTH => 10, DATA_WIDTH => WORD_SIZE)
 		port map( addr => alu_out( 9 downto 0),
                   data => rt,
                   we => mem_write,
