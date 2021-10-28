@@ -35,7 +35,7 @@ package body Data_Types is
 											jc => "000010", 
 											jalc => "000011" );
 
-	constant DECODE_ALU_ENCODING : OPCODE_ARRAY := (  op_add => "000000",
+	constant DECODE_ALU_ENCODING : ALUENCODING_ARRAY := (  op_add => "000000",
 											op_sub => "100000",
 											op_and => "000001", 
 											op_or  => "000010",
@@ -58,7 +58,7 @@ package body Data_Types is
 												norc => "100111", 
 												xorc => "100110", 
 												xori => "001110", 
-												orc ==> "100101", 
+												orc => "100101", 
 												oric => "001101", 
 												sltc => "101010", 
 												sltic => "001010", 
@@ -66,7 +66,7 @@ package body Data_Types is
 												srlc => "000010", 
 												srac => "000011",
 												subc => "100010", 
-												subuc => 100011, 
+												subuc => "100011", 
 												jrc => "001000", 
 												quadc => "011111"
 	 );
