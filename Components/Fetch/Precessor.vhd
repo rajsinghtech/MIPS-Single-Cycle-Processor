@@ -260,7 +260,7 @@ begin
                   i_addr => rs,
                   i_clk => clk,
                   jmp_imm => cur_ins(25 downto 0),
-                  branch_pass: => branch,
+                  branch_pass => branch,
                   jump => jump,
                   jmp_ins => jmpIns);
                                       
