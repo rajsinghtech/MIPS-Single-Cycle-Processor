@@ -176,16 +176,17 @@ entity precessor is
 begin
 
     instructionmemory: mem
-		port map( addr => pc_ins,
+		port map( addr => pc_ins(9 downto 0),
                   data => (others =>'0'),
                   we => '0',
                   q => cur_ins,
                   clk => clk);
+
     datamemory: mem 
     port map(data => rt, 
               we => mem_write,
               clk => clk,
-              addr => alu_out,
+              addr => alu_out(9 downto 0),
               q => mem_out);
 
     wb_mux: mux2t1_N
