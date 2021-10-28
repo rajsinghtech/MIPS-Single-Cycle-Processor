@@ -87,9 +87,9 @@ entity precessor is
       component mux2t1_N is
         generic( N: integer);
         port(i_S          : in std_logic;
-            i_D0         : in std_logic_vector(WORD_SIZE - 1 downto 0);
-            i_D1         : in std_logic_vector(WORD_SIZE - 1 downto 0);
-            o_O          : out std_logic_vector(WORD_SIZE - 1 downto 0));
+            i_D0         : in std_logic_vector(N - 1 downto 0);
+            i_D1         : in std_logic_vector(N - 1 downto 0);
+            o_O          : out std_logic_vector(N - 1 downto 0));
       end component;
 
       component mux2t1 is
@@ -200,24 +200,18 @@ begin
                   o_O => wb_data);
 
     wb_select_mux: mux2t1_N
-    generic map ( N => WORD_SIZE ) 
+    generic map ( N => 5 ) 
 		port map( i_S => reg_dst,
-                  i_D0(4 downto 0) => cur_ins(15 downto 11),
-                  i_D0 => (others => '0'),
-                  i_D1(4 downto 0) => cur_ins(20 downto 16),
-                  i_D1 => (others => '0'),
-                  o_O(4 downto 0) => wb_addr,
-                  o_O => (others => '-'));
+                  i_D0 => cur_ins(15 downto 11),
+                  i_D1 => cur_ins(20 downto 16),
+                  o_O => wb_addr);
     
     link_select_mux: mux2t1_N
-    generic map ( N => WORD_SIZE ) 
+    generic map ( N => 5 ) 
 		port map( i_S => link,
-                  i_D0(4 downto 0) => wb_addr,
-                  i_D0 => (others => '0'),
-                  i_D1(4 downto 0) => "11111",
-                  i_D1 => (others => '0'),
-                  o_O(4 downto 0) => write_addr,
-                  o_O => (others => '-'));
+                  i_D0 => wb_addr,
+                  i_D1 => "11111",
+                  o_O => write_addr);
     
     write_data_mux: mux2t1_N
 		generic map ( N => WORD_SIZE ) 
