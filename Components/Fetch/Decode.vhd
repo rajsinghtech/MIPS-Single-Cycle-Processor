@@ -11,7 +11,7 @@ entity decode_logic is
       o_jump : out std_logic;
       o_branch : out std_logic;
       o_memToReg : out std_logic;
-      o_ALUOP : out std_logic_vector(FUNC_CODE_SIZE - 1 downto 0);
+      o_ALUOP : out std_logic_vector(OP_CODE_SIZE - 1 downto 0);
       o_ALUSrc : out std_logic;
       o_jumpIns : out std_logic;
       o_regWrite : out std_logic;
