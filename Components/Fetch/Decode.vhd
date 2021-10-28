@@ -55,7 +55,7 @@ end decode_logic;
 
   -- (31 downto 26) = opcode
   -- (25 downto 0) = jump address
-  
+
 architecture structure of decode_logic is
 
   signal op_code : std_logic_vector(OP_CODE_SIZE - 1 downto 0);
@@ -70,15 +70,74 @@ architecture structure of decode_logic is
   o_jump <= '1' when op_code = DECODE_OP(jc)
                 else '1' when op_code = DECODE_OP(jalc)
                 else '0';
-  
+
   o_branch <= '1' when op_code = DECODE_OP(beqc)
                 else '1' when op_code = DECODE_OP(bnec)
                 else '0';
 
   o_memToReg <= '1' when op_code = DECODE_OP(lwc)
                 else '0';
-  
-  -- TODO ALU OP
+
+  o_ALUOP <= DECODE_ALU_ENCODING(op_add) when op_code = DECODE_OP(r_type) &
+                (
+                  func_code = DECODE_FUNC(addc)   |
+                  func_code = DECODE_FUNC(addic)  |
+                  func_code = DECODE_FUNC(addiuc) |
+                  func_code = DECODE_FUNC(adduc)
+                )
+                else DECODE_ALU_ENCODING(op_sub) when op_code = DECODE_OP(r_type) &
+                (
+                  func_code = DECODE_FUNC(subc)   |
+                  func_code = DECODE_FUNC(subuc)
+                )
+                else DECODE_ALU_ENCODING(op_and) when op_code = DECODE_OP(r_type) &
+                (
+                  func_code = DECODE_FUNC(andc)   |
+                  func_code = DECODE_FUNC(andic)
+                )
+                else DECODE_ALU_ENCODING(op_or) when op_code = DECODE_OP(r_type) &
+                (
+                  func_code = DECODE_FUNC(orc)   |
+                  func_code = DECODE_FUNC(oric)
+                )
+                else DECODE_ALU_ENCODING(op_nor) when op_code = DECODE_OP(r_type) &
+                (
+                  func_code = DECODE_FUNC(norc)
+                )
+                else DECODE_ALU_ENCODING(op_xor) when op_code = DECODE_OP(r_type) &
+                (
+                  func_code = DECODE_FUNC(xorc)   |
+                  func_code = DECODE_FUNC(xori)
+                )
+                else DECODE_ALU_ENCODING(op_or) when op_code = DECODE_OP(r_type) &
+                (
+                  func_code = DECODE_FUNC(orc)   |
+                  func_code = DECODE_FUNC(oric)
+                )
+                else DECODE_ALU_ENCODING(op_slt) when op_code = DECODE_OP(r_type) &
+                (
+                  func_code = DECODE_FUNC(sltc)   |
+                  func_code = DECODE_FUNC(sltic)
+                )
+                else DECODE_ALU_ENCODING(op_sll) when op_code = DECODE_OP(r_type) &
+                (
+                  func_code = DECODE_FUNC(sllc)
+                )
+                else DECODE_ALU_ENCODING(op_srl) when op_code = DECODE_OP(r_type) &
+                (
+                  func_code = DECODE_FUNC(srlc)
+                )
+                else DECODE_ALU_ENCODING(op_sra) when op_code = DECODE_OP(r_type) &
+                (
+                  func_code = DECODE_FUNC(srac)
+                )
+                else DECODE_ALU_ENCODING(op_quad) when op_code = DECODE_OP(r_type) &
+                (
+                  func_code = DECODE_FUNC(quadc)
+                )
+                else "000000";
+
+
 
   o_ALUSrc <= '1' when op_code = DECODE_OP(r_type) & func_code = DECODE_FUNC(addic)
                 else '1' when op_code = DECODE_OP(r_type) & func_code = DECODE_FUNC(addiuc)
@@ -87,15 +146,18 @@ architecture structure of decode_logic is
                 else '1' when op_code = DECODE_OP(r_type) & func_code = DECODE_FUNC(xori)
                 else '1' when op_code = DECODE_OP(r_type) & func_code = DECODE_FUNC(oric)
                 else '1' when op_code = DECODE_OP(r_type) & func_code = DECODE_FUNC(sltic)
-                else '0'; 
-  
+                else '0';
+
   o_jumpIns <= '1' when op_code = DECODE_OP(jrc)
                 else '0';
-    
+
   o_regWrite <= '1' when DECODE_OP(r_type) & !(func_code = DECODE_FUNC(jrc))
                   else '0';
 
   o_link <= '1' when op_code = DECODE_OP(jalc)
               else '0';
-  
+
+  o_bne <= '1' when op_code = DECODE_OP(bnec)
+            else '0';
+
 end structure;

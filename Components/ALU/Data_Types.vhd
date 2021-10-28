@@ -36,17 +36,17 @@ package body Data_Types is
 											jalc => "000011" );
 
 	constant DECODE_ALU_ENCODING : ALUENCODING_ARRAY := (  op_add => "000000",
-
 											op_sub => "100000",
 											op_and => "000001", 
 											op_or  => "000010",
 											op_nor => "000011", 
 											op_xor => "000100", 
-											op_sll => "001101", 
-											op_srl => "010101", 
-											op_sra => "011101", 
+											op_sll => "010101", 
+											op_srl => "100101", 
+											op_sra => "110101", 
 											op_quad => "000110", 
-											op_lui => "000111");
+											op_lui => "000111",
+											op_lui => "001000");
 
 	constant DECODE_FUNC : FUNCCODE_ARRAY := (  
 												addc => "100000", 
