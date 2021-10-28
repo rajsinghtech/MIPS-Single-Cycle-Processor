@@ -35,11 +35,8 @@ package body Data_Types is
 											jc => "000010", 
 											jalc => "000011" );
 
-<<<<<<< HEAD
 	constant DECODE_ALU_ENCODING : ALUENCODING_ARRAY := (  op_add => "000000",
-=======
-	constant DECODE_ALU_ENCODING : OPCODE_ARRAY := (  op_add => "000000",
->>>>>>> main
+
 											op_sub => "100000",
 											op_and => "000001", 
 											op_or  => "000010",
