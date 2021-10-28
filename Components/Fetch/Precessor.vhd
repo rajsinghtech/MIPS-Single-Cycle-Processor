@@ -191,14 +191,6 @@ begin
                   q => mem_out,
                   clk => clk);
 
-    link_select_mux: mux2t1_N
-    generic map ( N => 5 ) 
-    port map( i_S => link,
-                  i_D0 => wb_addr,
-                  i_D1 => "11111",
-                  o_O => write_addr);
-
-
     wb_mux: mux2t1_N
 		generic map ( N => WORD_SIZE ) 
 		port map( i_S => mem_to_reg,
@@ -207,11 +199,20 @@ begin
                   o_O => wb_data);
 
     wb_select_mux: mux2t1_N
-		generic map ( N => 5 ) 
 		port map( i_S => reg_dst,
-                  i_D0 => cur_ins(15 downto 11),
-                  i_D1 => cur_ins(20 downto 16),
+                  i_D0(4 downto 0) => cur_ins(15 downto 11),
+                  i_D0 => (others => '0'),
+                  i_D1(4 downto 0) => cur_ins(20 downto 16),
+                  i_D1 => (others => '0'),
                   o_O => wb_addr);
+    
+    link_select_mux: mux2t1_N
+		port map( i_S => link,
+                  i_D0(4 downto 0) => wb_addr,
+                  i_D0 => (others => '0'),
+                  i_D1(4 downto 0) => "11111",
+                  i_D1 => (others => '0'),
+                  o_O => write_addr);
     
     write_data_mux: mux2t1_N
 		generic map ( N => WORD_SIZE ) 
