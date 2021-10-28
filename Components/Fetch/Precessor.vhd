@@ -264,7 +264,7 @@ begin
                            o_F => take_branch);
 
     FetchLogic: fetch_logic 
-        port MAP (i_imm => cur_ins,
+        port MAP (i_imm => cur_ins(15 downto 0),
                   i_addr => rs,
                   i_clk => clk,
                   jmp_imm => cur_ins(25 downto 0),
