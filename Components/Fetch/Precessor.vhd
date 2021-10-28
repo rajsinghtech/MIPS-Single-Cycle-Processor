@@ -60,6 +60,7 @@ entity precessor is
       end component;
 
       component RegisterFile is
+        generic( NUM_SELECT: integer);
         port (i_D	: in std_logic_vector( WORD_SIZE - 1 downto 0);
             i_WE	: in std_logic;
             i_CLK	: in std_logic;
@@ -244,6 +245,7 @@ begin
                  o_S    => return_addr);
     
     RegFile: RegisterFile 
+        generic map ( NUM_SELECT => ADDR_LEN)
         port map(i_D => write_data, 
                 i_WE => reg_write,
                 i_CLK => clk,
