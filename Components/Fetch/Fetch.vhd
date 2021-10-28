@@ -103,7 +103,7 @@ begin
             o_S    => branch_address);
 		   
 	jump_address( 31 downto 28) <= program_counter( 31 downto 28);
-	jump_address( 27 downto 2) <= instruction;
+	jump_address( 27 downto 2) <= jmp_imm;
 	jump_address( 1 downto 0) <= "00";
 	
 

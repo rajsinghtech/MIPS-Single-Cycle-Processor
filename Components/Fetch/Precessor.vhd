@@ -5,7 +5,7 @@ use IEEE.Numeric_Std.all;
 use work.Data_Types.all;
 
 entity precessor is
-    generic( IMMEDIATE_LEN: integer := 16; ADDR_LEN: integer := 32; WORD_SIZE: integer := 32; WORD_SIZE: integer := 32);
+    generic( IMMEDIATE_LEN: integer := 16; ADDR_LEN: integer := 32; WORD_SIZE: integer := 32);
     
   
   end precessor;
