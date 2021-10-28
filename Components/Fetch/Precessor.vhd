@@ -199,6 +199,7 @@ begin
                   o_O => wb_data);
 
     wb_select_mux: mux2t1_N
+    generic map ( N => WORD_SIZE ) 
 		port map( i_S => reg_dst,
                   i_D0(4 downto 0) => cur_ins(15 downto 11),
                   i_D0 => (others => '0'),
@@ -207,6 +208,7 @@ begin
                   o_O => wb_addr);
     
     link_select_mux: mux2t1_N
+    generic map ( N => WORD_SIZE ) 
 		port map( i_S => link,
                   i_D0(4 downto 0) => wb_addr,
                   i_D0 => (others => '0'),
