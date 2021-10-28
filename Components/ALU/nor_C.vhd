@@ -8,9 +8,9 @@ entity nor_C is
 		   o_F: out std_logic_vector( N - 1 downto 0 ) );
 end nor_C;			   
 
-architecture structure of oneComp is
+architecture structure of nor_C is
 
-    signal nF: std_logic_vector;
+    signal nF: std_logic_vector( N - 1 downto 0 );
 
 	component invg is
 		port(i_A          : in std_logic;
@@ -27,7 +27,7 @@ architecture structure of oneComp is
 	
 	G_NOR: for i in 0 to N-1 generate
 	
-		ORG0: invg port MAP (i_A => i_A(i), i_B => i_B(i), o_F => nF(i));
+		ORG0: org2 port MAP (i_A => i_A(i), i_B => i_B(i), o_F => nF(i));
         INVG0: invg port MAP (i_A => nF(i), o_F => o_F(i));
 	
 	end generate G_NOR;

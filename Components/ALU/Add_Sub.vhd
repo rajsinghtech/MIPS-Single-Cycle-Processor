@@ -36,8 +36,8 @@ architecture structure of Add_Sub is
 
 	end component;	
 
-	signal inv_B: std_logic_vector(N-1 downto 0);
-	signal mux_B: std_logic_vector(N-1 downto 0);
+	signal inv_A: std_logic_vector(N-1 downto 0);
+	signal mux_A: std_logic_vector(N-1 downto 0);
 	signal ripple_out: std_logic_vector(N-1 downto 0);
 	signal inv_out: std_logic_vector(N-1 downto 0);
 
@@ -48,24 +48,24 @@ begin
 	
 	inv0: invg_N
 		generic map ( N => N ) -- Default is 32, but doing this for sanity
-		port map( i_A => i_B,
-				  o_F => inv_B);
+		port map( i_A => i_A,
+				  o_F => inv_A);
 
 -- Layer 1
 
 	mux0: mux2t1_N
 		generic map ( N => N ) -- Default is 32, but doing this for sanity
 		port map( i_S => nAdd_Sub,
-				  i_D0 => i_B,
-				  i_D1 => inv_B,
-				  o_O => mux_B);
+				  i_D0 => i_A,
+				  i_D1 => inv_A,
+				  o_O => mux_A);
 
 -- Layer 2
 
 	adder: Ripple_Adder
 		generic map ( N => N ) -- Default is 32, but doing this for sanity
-		port map( i_A => i_A,
-				  i_B => mux_B,
+		port map( i_A => mux_A,
+				  i_B => i_B,
 				  o_S => ripple_out);
 -- Layer 3
 
