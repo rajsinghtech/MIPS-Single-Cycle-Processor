@@ -185,8 +185,8 @@ begin
                   clk => clk);
     
     datamemory: mem
-    generic map(ADDR_WIDTH => 9, DATA_WIDTH => WORD_SIZE)
-		port map( addr => alu_out( 9 downto 0),
+    generic map(ADDR_WIDTH => WORD_SIZE, DATA_WIDTH => WORD_SIZE)
+		port map( addr => alu_out,
                   data => rt,
                   we => mem_write,
                   q => mem_out,
