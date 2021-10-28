@@ -81,7 +81,7 @@ architecture structure of ALU is
 	component NBitMux is
 	  generic( NUM_SELECT: integer := NUM_SELECT );
 	  port(i_A          : in DATA_FIELD( ((2**NUM_SELECT) - 1) downto 0);
-		   i_S         : in std_logic_vector(N-1 downto 0);
+		   i_S         : in std_logic_vector(NUM_SELECT-1 downto 0);
 		   o_Q          : out std_logic_vector(N-1 downto 0));
 
 	end component;	
