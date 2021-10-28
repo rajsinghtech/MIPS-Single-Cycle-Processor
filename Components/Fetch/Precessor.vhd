@@ -92,6 +92,7 @@ entity precessor is
       end component;
 
       component mem is
+        generic( N: integer := WORD_SIZE);
         port (clk		: in std_logic;
 		      addr	        : in std_logic_vector((ADDR_WIDTH-1) downto 0);
 		      data	        : in std_logic_vector((DATA_WIDTH-1) downto 0);
@@ -146,8 +147,8 @@ entity precessor is
       signal wb_addr: std_logic_vector(5 downto 0);
       signal write_addr: std_logic_vector(WORD_SIZE - 1 downto 0);
 
-      signal ALU_zero: std_logic_vector( 0 downto 0);
-      signal ALU_not_zero: std_logic_vector( 0 downto 0);
+      signal ALU_zero: std_logic;
+      signal ALU_not_zero: std_logic;
       signal branch_pass: std_logic;
       signal take_branch: std_logic;
 
