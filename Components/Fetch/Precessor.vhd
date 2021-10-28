@@ -205,7 +205,8 @@ begin
                   i_D0 => (others => '0'),
                   i_D1(4 downto 0) => cur_ins(20 downto 16),
                   i_D1 => (others => '0'),
-                  o_O => wb_addr);
+                  o_O(4 downto 0) => wb_addr,
+                  o_O => (others => '-'));
     
     link_select_mux: mux2t1_N
     generic map ( N => WORD_SIZE ) 
@@ -214,7 +215,8 @@ begin
                   i_D0 => (others => '0'),
                   i_D1(4 downto 0) => "11111",
                   i_D1 => (others => '0'),
-                  o_O => write_addr);
+                  o_O(4 downto 0) => write_addr,
+                  o_O => (others => '-'));
     
     write_data_mux: mux2t1_N
 		generic map ( N => WORD_SIZE ) 
