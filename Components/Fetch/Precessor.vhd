@@ -44,7 +44,7 @@ entity precessor is
             o_jumpIns : out std_logic;
             o_regWrite : out std_logic;
             o_shamt : out std_logic_vector( MAX_SHIFT - 1 downto 0);
-            o_link : out std_logic,
+            o_link : out std_logic;
             o_bne : out std_logic);
         
       end component;
