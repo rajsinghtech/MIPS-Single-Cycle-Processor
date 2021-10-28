@@ -10,7 +10,7 @@ package Data_Types is
 	type DATA_FIELD is array(integer range <>) of std_logic_vector(31 downto 0);
 	type shift_layers is array(5 downto 0, 31 downto 0) of std_logic;
 	
-	type ALU_ENCODING is ( op_add, op_sub, op_and, op_or, op_nor, op_xor, op_sll, op_srl, op_sra, op_quad, op_lui);
+	type ALU_ENCODING is ( op_add, op_sub, op_and, op_or, op_nor, op_xor, op_sll, op_srl, op_sra, op_quad, op_lui, op_slt);
 	type OP_CODE is ( r_type, lwc, swc, beqc, bnec, jc, jalc);
 	type FUNC_CODE is ( addc, addic, addiuc, adduc, andc, andic, luic, norc, xorc, xori, orc, oric, sltc, sltic, sllc, srlc, srac,subc, subuc, jrc, quadc);
 	
@@ -36,6 +36,7 @@ package body Data_Types is
 											jalc => "000011" );
 
 	constant DECODE_ALU_ENCODING : ALUENCODING_ARRAY := (  op_add => "000000",
+
 											op_sub => "100000",
 											op_and => "000001", 
 											op_or  => "000010",
