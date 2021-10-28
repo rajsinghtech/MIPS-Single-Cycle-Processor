@@ -5,7 +5,16 @@ use IEEE.Numeric_Std.all;
 use work.Data_Types.all;
 
 entity precessor is
-    generic( IMMEDIATE_LEN: integer := 16; MAX_SHIFT : integer := 5; ALU_OPERATIONS : integer := 8; ADDR_LEN: integer := 32; WORD_SIZE: integer := 32);
+    generic( IMMEDIATE_LEN: integer := 16; 
+             MAX_SHIFT : integer := 5; 
+             NUM_SELECT: integer := 5;
+             ALU_OPERATIONS : integer := 8; 
+             ADDR_LEN: integer := 32; 
+             WORD_SIZE: integer := 32;
+             SOURCE_LEN: integer := 16;
+             TARGET_LEN: integer := 32;
+             DATA_WIDTH: integer := 32;
+             ADDR_WIDTH: integer := 32);
     
   
   end precessor;
