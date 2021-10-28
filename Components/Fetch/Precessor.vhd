@@ -33,7 +33,7 @@ entity precessor is
       component fetch_logic is
         port (
           i_imm : in std_logic_vector( IMMEDIATE_LEN - 1 downto 0 );
-          i_addr: in std_logic_vector( ADDR_LEN - 1 downto 0 );
+          i_addr: in std_logic_vector( WORD_SIZE - 1 downto 0 );
           i_clk : in std_logic;
           jmp_imm : in std_logic_vector( 25 downto 0);
           branch_pass : in std_logic;
