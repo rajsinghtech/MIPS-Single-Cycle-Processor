@@ -138,6 +138,7 @@ entity precessor is
       signal ext_type: std_logic;
       
       signal clk: std_logic;
+      signal rst: std_logic := '0';
 
 
 
@@ -240,7 +241,7 @@ begin
         port map(i_D => write_data, 
                 i_WE => reg_write,
                 i_CLK => clk,
-                i_RST => '0', -- This may need to be 1
+                i_RST => rst, -- This may need to be 1
                 i_WA => write_addr,
                 i_RA0 => cur_ins(25 downto 21),
                 i_RA1 => cur_ins(20 downto 16),
