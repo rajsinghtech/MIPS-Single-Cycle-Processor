@@ -36,16 +36,6 @@ entity fetch_logic is
 end fetch_logic;
 
 architecture structure of fetch_logic is
-  
-
-  component mem
-  port(
-	clk		: in std_logic;
-	addr	        : in std_logic_vector((ADDR_LEN-1) downto 0);
-	data	        : in std_logic_vector((WORD_SIZE-1) downto 0);
-	we		: in std_logic := '1';
-	q		: out std_logic_vector((WORD_SIZE -1) downto 0));
-  end component;
 
   component Ripple_Adder is
     port(i_A : in std_logic_vector(WORD_SIZE - 1 downto 0);
