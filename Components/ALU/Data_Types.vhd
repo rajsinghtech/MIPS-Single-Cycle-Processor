@@ -46,7 +46,7 @@ package body Data_Types is
 											op_sra => "110101", 
 											op_quad => "000110", 
 											op_lui => "000111",
-											op_lui => "001000");
+											op_slt => "001000");
 
 	constant DECODE_FUNC : FUNCCODE_ARRAY := (  
 												addc => "100000", 
