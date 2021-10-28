@@ -88,7 +88,13 @@ entity precessor is
             i_D0         : in std_logic_vector(WORD_SIZE - 1 downto 0);
             i_D1         : in std_logic_vector(WORD_SIZE - 1 downto 0);
             o_O          : out std_logic_vector(WORD_SIZE - 1 downto 0));
-  
+      end component;
+
+      component mux2t1 is
+        port(i_S          : in std_logic;
+             i_D0         : in std_logic;
+             i_D1         : in std_logic;
+             o_O          : out std_logic);
       end component;
 
       component mem is
@@ -217,8 +223,7 @@ begin
                   i_D1 => sign_extend_imm,
                   o_O => alu_b);
 
-    branch_type_mux: mux2t1_N
-		generic map ( N => 1 ) 
+    branch_type_mux: mux2t1
 		port map( i_S => bne,
                   i_D0 => ALU_zero,
                   i_D1 => ALU_not_zero,
