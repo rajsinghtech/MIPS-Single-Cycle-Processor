@@ -84,7 +84,6 @@ entity precessor is
       end component;
 
       component mux2t1_N is
-        generic( N: integer);
         port(i_S          : in std_logic;
             i_D0         : in std_logic_vector(WORD_SIZE - 1 downto 0);
             i_D1         : in std_logic_vector(WORD_SIZE - 1 downto 0);
