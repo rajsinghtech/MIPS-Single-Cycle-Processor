@@ -12,12 +12,12 @@ entity precessor is
 
   architecture structure of precessor is
     component ALU is
-        port(i_A : in std_logic_vector(N-1 downto 0);
-            i_B : in std_logic_vector(N-1 downto 0);
+        port(i_A : in std_logic_vector(WORD_SIZE - 1 downto 0);
+            i_B : in std_logic_vector(WORD_SIZE - 1 downto 0);
             i_Shamt : in std_logic_vector(4 downto 0);
             i_ALUOP : in std_logic_vector(5 downto 0);
             o_Zero : out std_logic;
-            o_S : out std_logic_vector(N-1 downto 0));
+            o_S : out std_logic_vector(WORD_SIZE - 1 downto 0));
   
       end component;
 
@@ -75,9 +75,9 @@ entity precessor is
 
       component mux2t1_N is
         port((i_S          : in std_logic;
-            i_D0         : in std_logic_vector(N-1 downto 0);
-            i_D1         : in std_logic_vector(N-1 downto 0);
-            o_O          : out std_logic_vector(N-1 downto 0));
+            i_D0         : in std_logic_vector(WORD_SIZE - 1 downto 0);
+            i_D1         : in std_logic_vector(WORD_SIZE - 1 downto 0);
+            o_O          : out std_logic_vector(WORD_SIZE - 1 downto 0));
   
       end component;
 
@@ -126,33 +126,33 @@ entity precessor is
       -- Data Signals -------------------------------
 
       -- Fetch Signals
-      signal pc_ins: std_logic_vector(N-1 downto 0) := (others =>'0');
-      signal cur_ins: std_logic_vector(N-1 downto 0);
+      signal pc_ins: std_logic_vector(WORD_SIZE - 1 downto 0) := (others =>'0');
+      signal cur_ins: std_logic_vector(WORD_SIZE - 1 downto 0);
 
       -- Execute signals
 
-      signal return_addr: std_logic_vector(N-1 downto 0);
+      signal return_addr: std_logic_vector(WORD_SIZE - 1 downto 0);
 
       signal wb_addr: std_logic_vector(5 downto 0 downto 0);
-      signal write_addr: std_logic_vector(N-1 downto 0);
+      signal write_addr: std_logic_vector(WORD_SIZE - 1 downto 0);
 
       signal ALU_zero: std_logic;
       signal ALU_not_zero: std_logic;
       signal branch_pass: std_logic;
       signal take_branch: std_logic;
 
-      signal alu_out: std_logic_vector(N-1 downto 0);
-      signal rt: std_logic_vector(N-1 downto 0);
-      signal rs: std_logic_vector(N-1 downto 0);
-      signal sign_extend_imm : std_logic_vector(N-1 downto 0);
-      signal alu_b : std_logic_vector(N-1 downto 0);
+      signal alu_out: std_logic_vector(WORD_SIZE - 1 downto 0);
+      signal rt: std_logic_vector(WORD_SIZE - 1 downto 0);
+      signal rs: std_logic_vector(WORD_SIZE - 1 downto 0);
+      signal sign_extend_imm : std_logic_vector(WORD_SIZE - 1 downto 0);
+      signal alu_b : std_logic_vector(WORD_SIZE - 1 downto 0);
       -- Mem signals
 
-      signal mem_out: std_logic_vector(N-1 downto 0);
+      signal mem_out: std_logic_vector(WORD_SIZE - 1 downto 0);
 
       -- Write back signals
-      signal wb_data: std_logic_vector(N-1 downto 0);
-      signal write_data: std_logic_vector(N-1 downto 0);
+      signal wb_data: std_logic_vector(WORD_SIZE - 1 downto 0);
+      signal write_data: std_logic_vector(WORD_SIZE - 1 downto 0);
 
 
 begin
