@@ -5,13 +5,13 @@ use IEEE.Numeric_Std.all;
 use work.Data_Types.all;
 
 entity decode_logic is
-  generic(WORD_SIZE : integer := 32; ALU_OPERATIONS : integer := 8; MAX_SHIFT : integer := 5; OP_CODE_SIZE : integer := 6; FUNC_CODE_SIZE : integer := 6);
+  generic(WORD_SIZE : integer := 32; MAX_SHIFT : integer := 5; OP_CODE_SIZE : integer := 6; FUNC_CODE_SIZE : integer := 6);
   port (
       i_instruction : in std_logic_vector( WORD_SIZE - 1 downto 0 );
       o_jump : out std_logic;
       o_branch : out std_logic;
       o_memToReg : out std_logic;
-      o_ALUOP : out std_logic_vector(ALU_OPERATIONS - 1 downto 0);
+      o_ALUOP : out std_logic_vector(FUNC_CODE_SIZE - 1 downto 0);
       o_ALUSrc : out std_logic;
       o_jumpIns : out std_logic;
       o_regWrite : out std_logic;
