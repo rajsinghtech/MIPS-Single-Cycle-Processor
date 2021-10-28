@@ -240,7 +240,7 @@ begin
     
     rippleadder: Ripple_Adder
         port map(i_A    => pc_ins,
-		      	     i_B    => "00001000",
+		      	     i_B    => x"00000008",
                  o_S    => return_addr);
     
     RegFile: RegisterFile 

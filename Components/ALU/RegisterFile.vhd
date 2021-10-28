@@ -54,6 +54,7 @@ architecture dataflow of RegisterFile is
   end component;
 
   component NBitMux
+  generic ( NUM_SELECT: integer);
 	  port(	i_A	: in DATA_FIELD( ((2**NUM_SELECT) - 1) downto 0);
 		i_S	: in std_logic_vector( NUM_SELECT - 1 downto 0);
 	       	o_Q	: out std_logic_vector( WORD_SIZE - 1 downto 0));
@@ -79,11 +80,13 @@ begin
   end generate G_NBit_REG;
 
   R0: NBitMux 
+  generic map( NUM_SELECT => NUM_SELECT)
   port map(i_A => r_Sel, 
            i_S => i_RA0,
            o_Q  => o_D0);
 
   R1: NBitMux 
+  generic map( NUM_SELECT => NUM_SELECT)
   port map(i_A => r_Sel, 
            i_S => i_RA1,
            o_Q  => o_D1);
