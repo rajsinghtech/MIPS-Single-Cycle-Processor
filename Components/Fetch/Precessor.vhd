@@ -8,7 +8,7 @@ entity precessor is
     generic( IMMEDIATE_LEN: integer := 16; 
              MAX_SHIFT : integer := 5; 
              NUM_SELECT: integer := 5;
-             ALU_OPERATIONS : integer := 8; 
+             OP_CODE_SIZE : integer := 6
              ADDR_LEN: integer := 32; 
              WORD_SIZE: integer := 32;
              SOURCE_LEN: integer := 16;
@@ -48,7 +48,7 @@ entity precessor is
             o_jump : out std_logic;
             o_branch : out std_logic;
             o_memToReg : out std_logic;
-            o_ALUOP : out std_logic_vector(ALU_OPERATIONS - 1 downto 0);
+            o_ALUOP : out std_logic_vector(OP_CODE_SIZE - 1 downto 0);
             o_ALUSrc : out std_logic;
             o_jumpIns : out std_logic;
             o_regWrite : out std_logic;
@@ -100,7 +100,6 @@ entity precessor is
       end component;
 
       component mem is
-        generic( ADDR_WIDTH: integer := WORD_SIZE);
         port (clk		: in std_logic;
 		      addr	        : in std_logic_vector((ADDR_WIDTH-1) downto 0);
 		      data	        : in std_logic_vector((DATA_WIDTH-1) downto 0);
@@ -177,7 +176,6 @@ entity precessor is
 begin
 
     instructionmemory: mem
-		generic map ( ADDR_WIDTH => WORD_SIZE ) 
 		port map( addr => pc_ins,
                   data => (others =>'0'),
                   we => '0',
@@ -185,7 +183,6 @@ begin
                   clk => clk);
     
     datamemory: mem
-		generic map ( ADDR_WIDTH => WORD_SIZE ) 
 		port map( addr => alu_out,
                   data => rt,
                   we => mem_write,
