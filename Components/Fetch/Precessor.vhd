@@ -8,8 +8,8 @@ entity precessor is
     generic( IMMEDIATE_LEN: integer := 16; 
              MAX_SHIFT : integer := 5; 
              NUM_SELECT: integer := 5;
-             OP_CODE_SIZE : integer := 6
-             ADDR_LEN: integer := 32; 
+             OP_CODE_SIZE : integer := 6;
+             ADDR_LEN: integer := 5; 
              WORD_SIZE: integer := 32;
              SOURCE_LEN: integer := 16;
              TARGET_LEN: integer := 32;
