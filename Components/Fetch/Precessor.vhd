@@ -142,7 +142,7 @@ entity precessor is
 
       signal return_addr: std_logic_vector(WORD_SIZE - 1 downto 0);
 
-      signal wb_addr: std_logic_vector(5 downto 0 downto 0);
+      signal wb_addr: std_logic_vector(5 downto 0);
       signal write_addr: std_logic_vector(WORD_SIZE - 1 downto 0);
 
       signal ALU_zero: std_logic;
@@ -167,21 +167,21 @@ entity precessor is
 begin
 
     instructionmemory: mem
-		generic map ( N => N ) 
+		generic map ( N => WORD_SIZE ) 
 		port map( addr => pc_ins,
-                  data => (others =>'0')
+                  data => (others =>'0'),
                   we => '0',
                   q => cur_ins);
     
     datamemory: mem
-		generic map ( N => N ) 
+		generic map ( N => WORD_SIZE ) 
 		port map( addr => alu_out,
                   data => rt,
                   we => mem_write,
                   q => mem_out);
 
     wb_mux: mux2t1_N
-		generic map ( N => N ) 
+		generic map ( N => WORD_SIZE ) 
 		port map( i_S => mem_to_reg,
                   i_D0 => alu_out,
                   i_D1 => mem_out,
@@ -202,14 +202,14 @@ begin
                   o_O => write_addr);
     
     write_data_mux: mux2t1_N
-		generic map ( N => N ) 
+		generic map ( N => WORD_SIZE ) 
 		port map( i_S => link,
                   i_D0 => wb_data,
                   i_D1 => return_addr,
                   o_O => write_data);
     
     immediate_select_mux: mux2t1_N
-		generic map ( N => N ) 
+		generic map ( N => WORD_SIZE ) 
 		port map( i_S => alu_src,
                   i_D0 => rt,
                   i_D1 => sign_extend_imm,
