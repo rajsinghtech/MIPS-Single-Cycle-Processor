@@ -83,6 +83,7 @@ entity precessor is
       end component;
 
       component mux2t1_N is
+        generic( N: integer := WORD_SIZE);
         port(i_S          : in std_logic;
             i_D0         : in std_logic_vector(WORD_SIZE - 1 downto 0);
             i_D1         : in std_logic_vector(WORD_SIZE - 1 downto 0);
@@ -145,8 +146,8 @@ entity precessor is
       signal wb_addr: std_logic_vector(5 downto 0);
       signal write_addr: std_logic_vector(WORD_SIZE - 1 downto 0);
 
-      signal ALU_zero: std_logic;
-      signal ALU_not_zero: std_logic;
+      signal ALU_zero: std_logic_vector( 0 downto 0);
+      signal ALU_not_zero: std_logic_vector( 0 downto 0);
       signal branch_pass: std_logic;
       signal take_branch: std_logic;
 
