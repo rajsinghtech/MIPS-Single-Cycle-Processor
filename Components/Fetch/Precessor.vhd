@@ -153,7 +153,7 @@ entity precessor is
       signal return_addr: std_logic_vector(WORD_SIZE - 1 downto 0);
 
       signal wb_addr: std_logic_vector(4 downto 0);
-      signal write_addr: std_logic_vector(WORD_SIZE - 1 downto 0);
+      signal write_addr: std_logic_vector(NUM_SELECT - 1 downto 0);
 
       signal ALU_zero: std_logic;
       signal ALU_not_zero: std_logic;
