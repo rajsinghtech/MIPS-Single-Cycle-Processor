@@ -53,9 +53,7 @@ outer_loop_footer:
 exit_outer_loop:
     
     # Exit program
-exit:  
-    li $v0, 10
-    syscall
+    j exit
 swap:
     # get offset of j (j * 4)
     sll $t0, $s3, 2
@@ -75,3 +73,4 @@ swap:
     addi $s4, $zero, 1
 swap_exit:
     jr $ra
+exit:
