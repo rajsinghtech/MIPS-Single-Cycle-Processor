@@ -10,17 +10,9 @@ main:
     addi $a2, $zero, 1 # F2 = 1
     jal fibn
 
-    # End example
-
-    addu  $a0, $v0, $zero
-    ori   $v0, $zero, 1
-    syscall
-
 
     # Exit program
-exit:  
-    li $v0, 10
-    syscall
+    j exit
 
 
 fibn:
@@ -32,7 +24,7 @@ fibn:
 base:
     addu $v0, $a2, $zero
     jr   $ra
-
+exit:
 
 recurse:
     # using a simple ABI convention activation record
