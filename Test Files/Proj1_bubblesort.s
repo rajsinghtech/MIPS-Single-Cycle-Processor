@@ -74,3 +74,4 @@ swap:
 swap_exit:
     jr $ra
 exit:
+    halt
