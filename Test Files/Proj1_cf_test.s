@@ -25,6 +25,7 @@ base:
     addu $v0, $a2, $zero
     jr   $ra
 exit:
+    halt
 
 recurse:
     # using a simple ABI convention activation record
