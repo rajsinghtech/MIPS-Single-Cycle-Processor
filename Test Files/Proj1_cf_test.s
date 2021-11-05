@@ -1,5 +1,7 @@
 .data
 .text
+    li $sp, 0x10011000
+    li $fp, 0
 .globl main
 main:
     # put 12 in the a0 reg
