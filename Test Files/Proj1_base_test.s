@@ -87,3 +87,4 @@ print:
     or $a0, $t0, $zero
     jr $ra
 exit:
+    halt
