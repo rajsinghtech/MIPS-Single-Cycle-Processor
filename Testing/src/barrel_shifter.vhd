@@ -84,7 +84,7 @@ begin
 				i_D0 => shift_layer_data(i,j),
 				i_D1 => shift_layer_data(i, j - (2 ** i)),
 				i_D2 => '0',
-				i_D3 => '1',
+				i_D3 => i_src(WORD_SIZE - 1),
 				o_O => shift_layer_data(i + 1, j));
 
 		end generate SHIFT_RIGHT_START;

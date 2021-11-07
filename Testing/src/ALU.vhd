@@ -9,6 +9,7 @@ entity ALU is
   port(i_A : in std_logic_vector(N-1 downto 0);
        i_B : in std_logic_vector(N-1 downto 0);
 	   i_Shamt : in std_logic_vector(4 downto 0);
+	   i_qByte : in std_logic_vector(7 downto 0);
 	   i_ALUOP : in std_logic_vector(5 downto 0);
 	   o_Zero : out std_logic;
 	   ovfl : out std_logic;
@@ -23,6 +24,7 @@ architecture structure of ALU is
 	  port(i_A : in std_logic_vector(N-1 downto 0);
 		   i_B : in std_logic_vector(N-1 downto 0);
 		   nAdd_Sub : in std_logic;
+		   ovfl : out std_logic;
 		   o_S : out std_logic_vector(N-1 downto 0));
 
 	end component;
@@ -96,7 +98,7 @@ architecture structure of ALU is
 
 	end component;	
 
-	signal datafield: DATA_FIELD(7 downto 0);
+	signal datafield: DATA_FIELD(15 downto 0);
 	signal luisignal: std_logic_vector(N-1 downto 0) := (others =>'0');
 
 
@@ -110,8 +112,9 @@ begin
 		generic map ( N => N ) 
 		port map( i_A => i_A,
 				  i_B => i_B,
-				  nAdd_Sub => i_ALUOP(NUM_SELECT - 1),
-				  o_S => datafield(0));
+				  nAdd_Sub => i_ALUOP(5),
+				  o_S => datafield(0),
+				  ovfl => ovfl);
 
 	and0: and_C
 		generic map ( N => N ) 
@@ -139,21 +142,26 @@ begin
 
 	barrel: barrel_shifter
 			port map( i_src  => i_B,
-				  	  i_shift_type => i_ALUOP(NUM_SELECT - 1 downto NUM_SELECT - 2),
+				  	  i_shift_type => i_ALUOP(5 downto 4),
 				  	  i_shamt => i_Shamt,
 				  	  o_shift_out  => datafield(5));
 
 	quad0: quadByte
-		port map( i_A => i_A,
+		port map( i_A => i_qByte,
 				  o_F => datafield(6));
 
 	-- LUI
-	luisignal(31 downto 16) <= i_A(15 downto 0);
+	luisignal(31 downto 16) <= i_B(15 downto 0);
+	luisignal(15 downto 0) <= (others => '0');
 	datafield(7) <= luisignal;
+	
+	datafield(8) <= x"0000000" & "000" & datafield(0)(31);
+	
+	
 						
 	mainmux: NBitMux
-	generic map (NUM_SELECT => 3 ) 
-	port map( i_S  => i_ALUOP(5 downto 3),
+	generic map (NUM_SELECT => NUM_SELECT ) 
+	port map( i_S  => i_ALUOP( NUM_SELECT - 1 downto 0),
 			  i_A => datafield,
 			  o_Q  => o_S);
 

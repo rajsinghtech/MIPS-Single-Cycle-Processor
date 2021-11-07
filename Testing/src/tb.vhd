@@ -47,9 +47,15 @@ end component;
 
 -- Create signals for all of the inputs and outputs of the file that you are testing
 -- := '0' or := (others => '0') just make all the signals start at an initial value of zero
-signal CLK, reset : std_logic := '0';
+signal CLK, load_ins: std_logic := '0';
+signal reset : std_logic := '1';
+
+signal initial_flag: std_logic := '0'; -- test bench is hitting to early
 
 signal alu_out : std_logic_vector(N-1 downto 0);
+
+signal addr_setup : std_logic_vector(N-1 downto 0) := x"00000000";
+signal ext_ins : std_logic_vector(N-1 downto 0) := x"20010001";
 
 begin
 
@@ -62,9 +68,9 @@ begin
   port map(
             iCLK      => CLK,
             iRST      => reset,
-            iInstLd   => '0',
-            iInstAddr => "--------------------------------",
-            iInstExt  => "--------------------------------",
+            iInstLd   => load_ins,
+            iInstAddr => addr_setup,
+            iInstExt  => ext_ins,
             oALUOut   => alu_out);
   --You can also do the above port map in one line using the below format: http://www.ics.uci.edu/~jmoorkan/vhdlref/compinst.html
   --port map(CLK, reset, rs_sel, rt_sel, reg_we, w_addr, reg_dest, immediate, sel_imm, ALU_OP, shamt, mem_we, rs_data, rt_data, ALU_out, dmem_out);
@@ -87,7 +93,7 @@ begin
     wait for gCLK_HPER*2;
 	reset <= '0';
 	wait;
-  end process;  
+  end process; 
   
   -- Dumps modifications to the state of the processor to trace file
   P_DUMP_STATE: process (CLK) 
@@ -110,9 +116,10 @@ begin
 
 
   begin
+  
 
-      if (rising_edge(CLK) and (reset /= '1')) then
-
+      if (rising_edge(CLK) and (reset /= '1') ) then
+      
         if (regWr) then
           write(my_line, string'("In clock cycle: "));
           write(my_line, cycle_cnt);
@@ -148,5 +155,4 @@ begin
     end if;
 
   end process;
-
 end mixed;

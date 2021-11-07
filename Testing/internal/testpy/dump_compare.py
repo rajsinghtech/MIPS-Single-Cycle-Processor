@@ -61,18 +61,21 @@ class StudentReader:
         '''
         while True:
             fline = self.f.readline().strip()
+            #print(fline)
             sline = self.f.readline().strip()
+            #print(sline)
             tline = self.f.readline()
             tline_length = len(tline)
             tline.strip()
+            #print(tline)
             
             if not skipnop or not sline:
                 return fline, sline, tline
             elif self.nop_re.fullmatch(sline):
-                self.f.seek(self.f.tell()-tline_length-1) 
+                self.f.seek(self.f.tell()-tline_length-0) 
                 continue # if instruction is a nop try again
             else:
-                self.f.seek(self.f.tell()-tline_length-1) 
+                self.f.seek(self.f.tell()-tline_length-0) 
                 return fline, sline, tline # common case: instruction is valid
 
     def genStruct(self, structLen, skipnop=False):
@@ -181,7 +184,7 @@ class MarsReader:
                 return fline, sline, ''
                 
             else:
-                self.f.seek(self.f.tell()-tline_length-1) 
+                self.f.seek(self.f.tell()-tline_length-0) 
                 return fline, sline, tline # common case of both lines being valid
 
     '''
@@ -239,7 +242,7 @@ class MarsReader:
     def close(self):
         self.f.close()
 
-def compare(student_file_path, mars_file_path, max_mismatches=2, outfunc=print, help=True):
+def new_compare(student_file_path, mars_file_path, max_mismatches=2, outfunc=print, help=True):
     '''
     Compares the modelsim and mars dump files for a program
     Returns True if sim succeeded, false otherwise
@@ -261,6 +264,7 @@ def compare(student_file_path, mars_file_path, max_mismatches=2, outfunc=print, 
     
     print("Beginning comparison")
     while cur_mismatches < max_mismatches:
+        print(cur_mismatches, max_mismatches)
         '''
         Check last operation for halt message
         '''
@@ -371,7 +375,7 @@ def compare(student_file_path, mars_file_path, max_mismatches=2, outfunc=print, 
             outfunc(helpinfo.format(student_file_path,mars_file_path))
         return False
 
-def legacy_compare(student_file_path, mars_file_path, max_mismatches=2, outfunc=print, help=True):
+def compare(student_file_path, mars_file_path, max_mismatches=2, outfunc=print, help=True):
     '''
     Compares the modelsim and mars dump files for a program
     Returns True if sim succeeded, false otherwise
@@ -383,17 +387,12 @@ def legacy_compare(student_file_path, mars_file_path, max_mismatches=2, outfunc=
     
     student_reader = StudentReader(student_file_path)
     mars_reader = MarsReader(mars_file_path)
-
+    
+    count=0
     while cur_mismatches < max_mismatches:
-        #print("Iter: ", count)
    
         #get mars instruction
         mars_firstline, mars_secondline, mars_thirdline = mars_reader.read_next(skipnop=True) 
-        #print(mars_firstline)
-        #print(mars_secondline)
-        #print(mars_thirdline)
-        #print(cur_mismatches, max_mismatches)
-
         #search mars first line
         if mars_firstline:
             mars_firstline_search = mars_firstline_re.search(mars_firstline)
@@ -431,7 +430,7 @@ def legacy_compare(student_file_path, mars_file_path, max_mismatches=2, outfunc=
   
         #Student continues to execute instructions when mars has completed     
         if (not mars_firstline and student_firstline):
-            if not (student_secondline and student_secondline == 'Register Write to Reg: 0x00 Val: 0x00000000' and mars_syscall) or (student_reader.fArr[-1] != "Execution is stopping!"):
+            if not (student_secondline and student_secondline == 'Register Write to Reg: 0x00 Val: 0x00000000' and mars_syscall):
                 cur_mismatches = cur_mismatches + 1
                 if cur_mismatches == 1:
                     outfunc('Oh no...\n')
@@ -486,7 +485,6 @@ def legacy_compare(student_file_path, mars_file_path, max_mismatches=2, outfunc=
                 outfunc(f'MARS instruction number: {mars_firstline_search.group("num")}\tInstruction: {mars_firstline_search.group("instr")}')
                 outfunc(f'MARS: {mars_secondline}')
                 outfunc(f'Student: {student_secondline}\n')
-        
     
     mars_reader.close()
     student_reader.close()
@@ -505,6 +503,8 @@ def legacy_compare(student_file_path, mars_file_path, max_mismatches=2, outfunc=
         if help:
             outfunc(helpinfo.format(student_file_path,mars_file_path))
         return False
+
+
 
 
 helpinfo = '''

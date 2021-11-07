@@ -1,6 +1,6 @@
 # vsim -c -voptargs="+acc" tb -do "../testpy/modelsim_framework.do" 
-# Start time: 19:58:17 on Oct 28,2021
-# ** Note: (vsim-3812) Design is being optimized...
+# Start time: 20:55:09 on Nov 05,2021
+# ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  Questa Sim-64
 # //  Version 2021.2 linux_x86_64 Apr 14 2021
 # //
@@ -56,11 +56,7 @@
 # Loading work.quadbyte(dataflow)#1
 # Loading work.nbitmux(dataflow)#2
 # Loading work.extender(dataflow)#1
-# ** Warning: (vsim-8683) Uninitialized out port /tb/MyMips/DecodeLogic/o_ext_type has no driver.
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized out port /tb/MyMips/DecodeLogic/o_bne has no driver.
-# This port will contribute value (U) to the signal network.
-# ** Warning: (vsim-8683) Uninitialized out port /tb/MyMips/AluLogic/ovfl has no driver.
+# ** Warning: (vsim-8683) Uninitialized out port /tb/MyMips/AluLogic/adder0/ovfl has no driver.
 # This port will contribute value (U) to the signal network.
 # do ../testpy/modelsim_framework.do
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -138,69 +134,69 @@
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 0  Instance: /tb/MyMips/IMem
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(0)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(0)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(1)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(1)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(2)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(2)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(3)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(3)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(4)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(4)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(5)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(5)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(6)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(6)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(7)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(7)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(8)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(8)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(9)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(9)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(10)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(10)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(11)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(11)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(12)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(12)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(13)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(13)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(14)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(14)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(15)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(15)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(16)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(16)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(17)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(17)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(18)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(18)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(19)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(19)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(20)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(20)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(21)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(21)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(22)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(22)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(23)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(23)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(24)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(24)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(25)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(25)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(26)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(26)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(27)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(27)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(28)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(28)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(29)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(29)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(30)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(30)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 1  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(31)
+#    Time: 0 ns  Iteration: 3  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(31)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 5  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(0)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -266,12 +262,12 @@
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 5  Region: /tb/MyMips/RegFile/WRITE_DEC/G_NBit_Decoder(31)
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 5 ns  Iteration: 3  Instance: /tb/MyMips/RegFile/R0
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 5 ns  Iteration: 3  Instance: /tb/MyMips/RegFile/R1
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 40 ns  Iteration: 3  Instance: /tb/MyMips/RegFile/R0
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 40 ns  Iteration: 3  Instance: /tb/MyMips/RegFile/R1
-# End time: 19:58:20 on Oct 28,2021, Elapsed time: 0:00:03
-# Errors: 0, Warnings: 108
+#    Time: 400 ns  Iteration: 9  Instance: /tb/MyMips/DMem
+# ** Note: Data structure takes 48071872 bytes of memory
+#          Process time 0.27 seconds
+#          stop
+#    Time: 440 ns  Iteration: 1  Instance: /tb
+# Break in Process P_DUMP_STATE at /home/jrmcghee/Desktop/Newer_Testing/src/tb.vhd line 153
+# Stopped at /home/jrmcghee/Desktop/Newer_Testing/src/tb.vhd line 153
+# End time: 20:55:10 on Nov 05,2021, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 103

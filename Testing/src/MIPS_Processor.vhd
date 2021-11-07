@@ -2,81 +2,6 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.Numeric_Std.all;
 
-package Data_Types is
-
-	type DATA_FIELD is array(integer range <>) of std_logic_vector(31 downto 0);
-	type shift_layers is array(5 downto 0, 31 downto 0) of std_logic;
-	
-	type ALU_ENCODING is ( op_add, op_sub, op_and, op_or, op_nor, op_xor, op_sll, op_srl, op_sra, op_quad, op_lui, op_slt);
-	type OP_CODE is ( r_type, lwc, swc, beqc, bnec, jc, jalc);
-	type FUNC_CODE is ( addc, addic, addiuc, adduc, andc, andic, luic, norc, xorc, xori, orc, oric, sltc, sltic, sllc, srlc, srac,subc, subuc, jrc, quadc);
-	
-
-	type ALUENCODING_ARRAY is array(ALU_ENCODING) of std_logic_vector(5 downto 0);
-	type OPCODE_ARRAY is array(OP_CODE) of std_logic_vector(5 downto 0);
-	type FUNCCODE_ARRAY is array(FUNC_CODE) of std_logic_vector(5 downto 0);
-	
-	constant DECODE_ALU_ENCODING : ALUENCODING_ARRAY;
-	constant DECODE_OP : OPCODE_ARRAY;
-	constant DECODE_FUNC : FUNCCODE_ARRAY;
-
-end package Data_Types;
-
-package body Data_Types is
-
-	constant DECODE_OP : OPCODE_ARRAY := (  r_type => "000000",
-											lwc => "100011",
-											swc => "101011", 
-											beqc => "000100", 
-											bnec => "000101", 
-											jc => "000010", 
-											jalc => "000011" );
-
-	constant DECODE_ALU_ENCODING : ALUENCODING_ARRAY := (  op_add => "000000",
-
-											op_sub => "100000",
-											op_and => "000001", 
-											op_or  => "000010",
-											op_nor => "000011", 
-											op_xor => "000100", 
-											op_sll => "010101", 
-											op_srl => "100101", 
-											op_sra => "110101", 
-											op_quad => "000110", 
-											op_lui => "000111",
-											op_slt => "001000");
-
-	constant DECODE_FUNC : FUNCCODE_ARRAY := (  
-												addc => "100000", 
-												addic => "001000", 
-												addiuc => "001001",
-												adduc => "100001", 
-												andc => "100100", 
-												andic => "001100", 
-												luic => "001111", 
-												norc => "100111", 
-												xorc => "100110", 
-												xori => "001110", 
-												orc => "100101", 
-												oric => "001101", 
-												sltc => "101010", 
-												sltic => "001010", 
-												sllc => "000000", 
-												srlc => "000010", 
-												srac => "000011",
-												subc => "100010", 
-												subuc => "100011", 
-												jrc => "001000", 
-												quadc => "011111"
-	 );
-											
-
-end package body Data_Types;
-
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.Numeric_Std.all;
-
 use work.Data_Types.all;
 
 entity MIPS_Processor is
@@ -113,7 +38,7 @@ end  MIPS_Processor;
 
     -- Required instruction memory signals
     signal s_IMemAddr     : std_logic_vector(N-1 downto 0); -- Do not assign this signal, assign to s_NextInstAddr instead
-    signal s_NextInstAddr : std_logic_vector(N-1 downto 0); -- TODO: use this signal as your intended final instruction memory address input.
+    signal s_NextInstAddr : std_logic_vector(N-1 downto 0) := x"0003FFF8"; -- TODO: use this signal as your intended final instruction memory address input.
     signal s_Inst         : std_logic_vector(N-1 downto 0); -- TODO: use this signal as the instruction signal 
 
     -- Required halt signal -- for simulation
@@ -131,6 +56,8 @@ end  MIPS_Processor;
     signal alu_b           : std_logic_vector(N-1 downto 0);
     signal sign_extend_imm : std_logic_vector(N-1 downto 0);
     signal alu_op          : std_logic_vector(OP_CODE_SIZE - 1 downto 0);
+    signal q_byte_imm      : std_logic_vector(7 downto 0);
+    signal halt         : std_logic;  --Becuase for some reason halt is always initialized to 1, even when explicitely set
     
     
     signal branch         : std_logic;
@@ -155,6 +82,7 @@ end  MIPS_Processor;
             i_B : in std_logic_vector(WORD_SIZE - 1 downto 0);
             i_Shamt : in std_logic_vector(4 downto 0);
             i_ALUOP : in std_logic_vector(5 downto 0);
+            i_qByte : in std_logic_vector(7 downto 0);
             o_Zero : out std_logic;
             ovfl : out std_logic;
             o_S : out std_logic_vector(WORD_SIZE - 1 downto 0));
@@ -163,13 +91,15 @@ end  MIPS_Processor;
 
       component fetch_logic is
         port (
-          i_imm : in std_logic_vector( IMMEDIATE_LEN - 1 downto 0 );
+          i_instr : in std_logic_vector( WORD_SIZE - 1 downto 0 );
           i_addr: in std_logic_vector( WORD_SIZE - 1 downto 0 );
           i_clk : in std_logic;
+          i_rst : in std_logic;
           jmp_imm : in std_logic_vector( 25 downto 0);
           branch_pass : in std_logic;
           jump : in std_logic;
-          jmp_ins : in std_logic
+          jmp_ins : in std_logic;
+          next_addr : out std_logic_vector( WORD_SIZE - 1 downto 0 )
         );
 
       end component;
@@ -184,10 +114,13 @@ end  MIPS_Processor;
             o_jumpIns : out std_logic;
             o_regWrite : out std_logic;
             o_ext_type: out std_logic;
+            o_q_byte : out std_logic_vector( 7 downto 0);
             o_mem_write : out std_logic;
+            reg_dst : out std_logic;
             o_shamt : out std_logic_vector( MAX_SHIFT - 1 downto 0);
             o_link : out std_logic;
-            o_bne : out std_logic);
+            o_bne : out std_logic;
+            o_halt : out std_logic);
         
       end component;
 
@@ -260,38 +193,40 @@ end  MIPS_Processor;
 begin
 
   FetchLogic: fetch_logic 
-  port MAP (i_imm => s_NextInstAddr(15 downto 0),
+  port MAP (i_instr => sign_extend_imm,
             i_addr => rs,
+            i_rst => iRST,
             i_clk => iCLK,
-            jmp_imm => s_NextInstAddr(25 downto 0),
-            branch_pass => branch,
+            jmp_imm => s_Inst(25 downto 0),
+            branch_pass => take_branch,
             jump => jump,
-            jmp_ins => jmpIns);
+            jmp_ins => jmpIns,
+            next_addr => s_NextInstAddr);
+            
+  with iInstLd select
+    s_IMemAddr <= s_NextInstAddr when '0',
+      iInstAddr when others;
+
 
   IMem: mem
-  generic map(ADDR_WIDTH => 10,
-              DATA_WIDTH => N)
-  port map(clk  => iCLK,
-            addr => s_IMemAddr(11 downto 2),
-            data => iInstExt,
-            we   => iInstLd,
-            q    => s_Inst);
-
+    generic map(ADDR_WIDTH => 10,
+                DATA_WIDTH => N)
+    port map(clk  => iCLK,
+             addr => s_IMemAddr(11 downto 2),
+             data => iInstExt,
+             we   => iInstLd,
+             q    => s_Inst);
+  
   DMem: mem
-  generic map(ADDR_WIDTH => 10,
-              DATA_WIDTH => N)
-  port map(clk  => iCLK,
-            addr => s_DMemAddr(11 downto 2),
-            data => s_DMemData,
-            we   => s_DMemWr,
-            q    => s_DMemOut);
-
-    wb_mux: mux2t1_N
-		generic map ( N => WORD_SIZE ) 
-		port map( i_S => mem_to_reg,
-                  i_D0 => s_DMemData,
-                  i_D1 => s_DMemOut,
-                  o_O => wb_data);
+    generic map(ADDR_WIDTH => 10,
+                DATA_WIDTH => N)
+    port map(clk  => iCLK,
+             addr => s_DMemAddr(11 downto 2),
+             data => s_DMemData,
+             we   => s_DMemWr,
+             q    => s_DMemOut);
+    
+    s_DMemData <= rt;
 
     wb_select_mux: mux2t1_N
     generic map ( N => 5 ) 
@@ -304,7 +239,7 @@ begin
     generic map ( N => 5 ) 
 		port map( i_S => link,
                   i_D0 => wb_addr,
-                  i_D1 => "11111",
+                  i_D1 => "1" & x"F",
                   o_O => s_RegWrAddr);
     
     s_RegWrData_mux: mux2t1_N
@@ -313,6 +248,14 @@ begin
                   i_D0 => wb_data,
                   i_D1 => return_addr,
                   o_O => s_RegWrData);
+
+    wb_data_mux: mux2t1_N
+		generic map ( N => WORD_SIZE ) 
+		port map( i_S => mem_to_reg,
+                  i_D0 => s_DMemAddr,
+                  i_D1 => s_DMemOut,
+                  o_O => wb_data);
+
     
     immediate_select_mux: mux2t1_N
 		generic map ( N => WORD_SIZE ) 
@@ -328,8 +271,8 @@ begin
                   o_O => branch_pass);
     
     rippleadder: Ripple_Adder
-        port map(i_A    => s_NextInstAddr,
-		      	     i_B    => x"00000008",
+        port map(i_A    => s_IMemAddr,
+		      	     i_B    => x"00000004",
                  o_S    => return_addr,
                  ovfl => dont_care);
     
@@ -340,8 +283,8 @@ begin
                 i_CLK => iCLK,
                 i_RST => iRST,
                 i_WA => s_RegWrAddr,
-                i_RA0 => s_NextInstAddr(25 downto 21),
-                i_RA1 => s_NextInstAddr(20 downto 16),
+                i_RA0 => s_Inst(25 downto 21),
+                i_RA1 => s_Inst(20 downto 16),
                 o_D0 => rs,
                 o_D1 => rt);
 
@@ -353,7 +296,7 @@ begin
                            o_F => take_branch);
                                       
     DecodeLogic: decode_logic 
-        port MAP (i_instruction => s_NextInstAddr,
+        port MAP (i_instruction => s_Inst,
                   o_jump => jump,
                   o_branch => branch,
                   o_memToReg => mem_to_reg,
@@ -361,25 +304,29 @@ begin
                   o_ALUSrc => alu_src,
                   o_jumpIns => jmpIns,
                   o_regWrite => s_RegWr,
+                  o_q_byte => q_byte_imm,
                   o_shamt => shamt,
+                  reg_dst => reg_dst,
                   o_mem_write => s_DMemWr,
                   o_link => link,
                   o_ext_type => ext_type,
-                  o_bne => bne);
+                  o_bne => bne,
+                  o_halt => s_Halt);
 
     AluLogic: ALU 
         port MAP (i_A => rs,
                   i_B => alu_b,
                   i_Shamt => shamt,
                   i_ALUOP => alu_op,
+                  i_qByte => q_byte_imm,
                   o_Zero => ALU_zero,
                   ovfl => s_Ovfl,
-                  o_S => s_IMemAddr);
+                  o_S => s_DMemAddr);
 
-    oALUOut <= s_IMemAddr;
+    oALUOut <= s_DMemAddr;
   
     extender1: extender 
-        port MAP (i_A => s_NextInstAddr( 15 downto 0),
+        port MAP (i_A => s_Inst( 15 downto 0),
                   type_select => ext_type,
                   o_Q => sign_extend_imm);
 

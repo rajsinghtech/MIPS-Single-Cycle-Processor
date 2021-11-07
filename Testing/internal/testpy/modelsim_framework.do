@@ -2,6 +2,7 @@
 
 add wave -r -position insertpoint sim:/tb/MyMips/*
 add wave -r -position insertpoint sim:/tb/P_DUMP_STATE/*
+add wave -r -position insertpoint sim:/tb/P_DUMP_STATE/cycle_cnt
 
 # We reccommend you add any additional signals that you want to see in your waveform below.
 # Common choices are your register file and your alu. You can use the following line as a template

@@ -24,13 +24,15 @@ use IEEE.Numeric_Std.all;
 entity fetch_logic is
   generic( IMMEDIATE_LEN: integer := 16; ADDR_LEN: integer := 32; WORD_SIZE: integer := 32);
   port (
-    i_imm : in std_logic_vector( IMMEDIATE_LEN - 1 downto 0 );
+    i_instr : in std_logic_vector( WORD_SIZE - 1 downto 0 );
     i_addr: in std_logic_vector( ADDR_LEN - 1 downto 0 );
     i_clk : in std_logic;
+    i_rst : in std_logic;
     jmp_imm : in std_logic_vector( 25 downto 0);
     branch_pass : in std_logic;
     jump : in std_logic;
-    jmp_ins : in std_logic
+    jmp_ins : in std_logic;
+    next_addr : out std_logic_vector( WORD_SIZE - 1 downto 0 )
   );
 end fetch_logic;
 
@@ -74,30 +76,40 @@ architecture structure of fetch_logic is
   signal branch_or_register : std_logic_vector( WORD_SIZE - 1 downto 0);
   signal branch_jump : std_logic_vector( WORD_SIZE - 1 downto 0);
   
+  signal ins_after_reset : std_logic_vector( WORD_SIZE - 1 downto 0);
+  
 begin
   
-  branch_immediate(17 downto 2) <= i_imm(15 downto 0);
+  branch_immediate <= i_instr(29 downto 0) & "00";
+  
+    ins_after_reset <= x"00400000" when i_rst = '1'
+        else next_address when i_clk = '0'
+        else ins_after_reset;
+  
   
   PC: dffg_N
   port map(
     i_CLK => i_clk,
     i_RST => '0',
     i_WE => '1',
-    i_D => next_address,
+    i_D => ins_after_reset,
     o_Q => program_counter
   );
+  
+  next_addr <= program_counter;
+  
 
   program_plus_four: Ripple_Adder
   port map(
-            i_A    => instruction_offset,
-		      	i_B    => program_counter,
+            i_A    => x"00000004",
+		    i_B    => program_counter,
             o_S    => next_instruction);
 
 
   branch_address_calc: Ripple_Adder
   port map(
             i_A    => next_instruction,
-		      	i_B    => branch_immediate,
+		    i_B    => branch_immediate,
             o_S    => branch_address);
 		   
 	jump_address( 31 downto 28) <= program_counter( 31 downto 28);
@@ -124,6 +136,6 @@ begin
             i_S     => jmp_ins,
             i_D0    => branch_jump,
             i_D1    => i_addr,
-            o_O     => next_address);	
+            o_O     => next_address);
 
 end structure;
